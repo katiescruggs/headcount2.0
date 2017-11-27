@@ -35,4 +35,19 @@ export default class DistrictRepository {
     }
   }
 
+  findAllMatches(searchValue) {
+    if(!searchValue) {
+      let allData = Object.keys(this.data).map(key => {
+        return {
+          location: key,
+          data: this.data[key]
+        }
+      });
+      return allData;
+    }
+    searchValue = searchValue.toUpperCase();
+    let matchKeys = Object.keys(this.data).filter(key => key.includes(searchValue));
+    let matches = matchKeys.map(matchKey => this.data[matchKey]);
+    return matches;
+  }
 }
