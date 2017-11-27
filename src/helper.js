@@ -13,15 +13,26 @@ export default class DistrictRepository {
         dataObject[currentDistrict] = {};
       }
 
-      let data = item.DataFormat === 'Percent' ? (item.Data * 100).toFixed(2) : item.Data;
+      let data = item.DataFormat === 'Percent' ? Math.round(item.Data * 1000)/1000 : item.Data;
 
       dataObject[currentDistrict][item.TimeFrame] = data;
        if (isNaN(dataObject[currentDistrict][item.TimeFrame])) {
-        dataObject[currentDistrict][item.TimeFrame] = 'N/A';
+        dataObject[currentDistrict][item.TimeFrame] = 0;
       }
       return dataObject;
     }, {});
 
     return cleanData;
   }
+
+  findByName(searchValue) {
+    if (!searchValue) {
+      return undefined
+    } 
+    searchValue = searchValue.toUpperCase();
+    if (this.data[searchValue]) {
+      return {location: searchValue, data: this.data[searchValue]}
+    }
+  }
+
 }
