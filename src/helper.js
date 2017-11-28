@@ -1,6 +1,6 @@
 export default class DistrictRepository {
-  constructor (dirtyData) {
-    this.data = this.data(dirtyData);
+  constructor (districtData) {
+    this.data = this.data(districtData);
   }
 
   data(dirtyData) {
@@ -23,6 +23,10 @@ export default class DistrictRepository {
     }, {});
 
     return cleanData;
+  }
+
+  consoleLog() {
+    console.log('hello')
   }
 
   findByName(searchValue) {
