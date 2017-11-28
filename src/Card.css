@@ -1,0 +1,7 @@
+ul.card-data {
+    list-style-type: none;
+}
+
+.hide {
+  visibility: hidden;
+}
