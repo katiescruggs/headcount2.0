@@ -7,7 +7,7 @@ import Check from 'react-icons/lib/fa/check'
 const checkIcon = (num) => {
   return num >= 0.5 ? <Check /> : <span className = "hide"><Check /> </span>;
 }
-// {(powder) ? </SnowFlake /> : null}
+
 
 function displayData(districtData) {
   if (districtData !== undefined) {

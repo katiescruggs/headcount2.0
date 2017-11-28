@@ -1,3 +1,11 @@
+.card {
+  box-shadow: 1.5px 3px 3px 1.5px #566782;
+  background: #ffffff;
+  margin: 10px;
+  width: 280px;
+  height: 280px;
+}
+
 ul.card-data {
     list-style-type: none;
 }
