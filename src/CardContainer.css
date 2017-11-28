@@ -1,0 +1,30 @@
+.card-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+}
+
+.card-holder {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1200px) {
+  .card-container {
+    width: 900px;
+  } 
+}
+
+@media screen and (max-width: 900px) {
+  .card-container {
+    width: 600px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-container { 
+    width: 300px;
+  }
+}

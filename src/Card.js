@@ -1,12 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Card.css'
+import Check from 'react-icons/lib/fa/check'
+
+
+const checkIcon = (num) => {
+  return num >= 0.5 ? <Check /> : <span className = "hide"><Check /> </span>;
+}
+
 
 function displayData(districtData) {
   if (districtData !== undefined) {
   const years = Object.keys(districtData);
     return years.map((year, index) => {
         return (
-          <li key={index}>{year}: {districtData[year]}</li>
+         <li key={index}> <span>{checkIcon(districtData[year])} </span> <strong>{year}</strong>: {districtData[year]}</li>
         )
       })
   } else {
@@ -19,7 +27,9 @@ const Card = ({districtName, districtData}) => (
     <div className="card-head">
       <h2>{districtName}</h2>
     </div>
+
     <ul className="card-data">
+    
       {displayData(districtData)}
     </ul>
   </div>
