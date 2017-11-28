@@ -51,7 +51,12 @@ export default class DistrictRepository {
     }
     searchValue = searchValue.toUpperCase();
     let matchKeys = Object.keys(this.data).filter(key => key.includes(searchValue));
-    let matches = matchKeys.map(matchKey => this.data[matchKey]);
+    let matches = matchKeys.map(matchKey => {
+      return {
+        location: matchKey, 
+        data: this.data[matchKey]
+      }
+    });
     return matches;
   }
 }
