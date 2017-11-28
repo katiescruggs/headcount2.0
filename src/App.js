@@ -22,12 +22,12 @@ class App extends Component {
 
 
   render() {
-    { console.log(this.state.districtData) }
+   
     return (
-      <div className = "App">
+      <div className="App">
       <div>Welcome To Headcount 2.0</div>
       <CardContainer
-      districtArray = {this.state.displayArray} />
+      districtArray={this.state.displayArray} />
       </div>
     );
   }

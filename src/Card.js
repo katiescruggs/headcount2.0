@@ -1,8 +1,19 @@
 import React from 'react';
 
-const Card = () => (
-  <div className = "card">
-    <h2>card component connected</h2>
+const Card = ({districtName, districtData}) => (
+  <div className="card">
+    <div className="card-hed">
+      <h2>{districtName}</h2>
+    </div>
+    <div className="card-data">
+      
+      {
+     
+      
+      }
+     
+
+    </div>
   </div>
 )
 
