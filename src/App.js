@@ -15,32 +15,32 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      displayArray: this.state.districtData.findAllMatches()
-    }, () => console.log(this.state.displayArray) );
+    this.setState({ displayArray: this.state.districtData.findAllMatches() });
   }
 
   filterDistricts = (searchTerm) => {
     const filteredDistricts = this.state.districtData.findAllMatches(searchTerm);
-    console.log(filteredDistricts);
     this.setState({displayArray: filteredDistricts})
   }
 
   render() {
-  if(this.state.displayArray.length) {
     return (
       <div className="App">
         <h1>Welcome To Headcount 2.0</h1>
         <Search filterDistricts={this.filterDistricts}/>
-        <CardContainer districtArray={this.state.displayArray} />
+        
+        { this.state.displayArray.length &&
+          <CardContainer districtArray={this.state.displayArray} />
+        }
+        
+       { !this.state.displayArray.length &&
+        <div className="no-results">
+          <p>No school districts found...</p>
+        </div>
+       }
       </div>
     );
-  } else {
-    return (
-      <div>Loading...</div>
-    )
-  }
-  }
+  } 
 }
 
 export default App;
