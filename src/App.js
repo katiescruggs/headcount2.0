@@ -16,13 +16,14 @@ class App extends Component {
   componentDidMount() {
     this.setState({
       displayArray: this.state.districtData.findAllMatches()
-    });
+    }, () => console.log(this.state.displayArray) );
+
   }
 
 
 
   render() {
-   
+  if(this.state.displayArray.length > 100) {
     return (
       <div className="App">
       <div>Welcome To Headcount 2.0</div>
@@ -30,6 +31,11 @@ class App extends Component {
       districtArray={this.state.displayArray} />
       </div>
     );
+  } else {
+    return (
+      <div>Loading...</div>
+    )
+  }
   }
 }
 

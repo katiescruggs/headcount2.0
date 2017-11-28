@@ -1,19 +1,26 @@
 import React from 'react';
 
+function displayData(districtData) {
+  if (districtData !== undefined) {
+  const years = Object.keys(districtData);
+    return years.map((year, index) => {
+        return (
+          <li key={index}>{year}: {districtData[year]}</li>
+        )
+      })
+  } else {
+    return null;
+  }
+}
+
 const Card = ({districtName, districtData}) => (
   <div className="card">
-    <div className="card-hed">
+    <div className="card-head">
       <h2>{districtName}</h2>
     </div>
-    <div className="card-data">
-      
-      {
-     
-      
-      }
-     
-
-    </div>
+    <ul className="card-data">
+      {displayData(districtData)}
+    </ul>
   </div>
 )
 
