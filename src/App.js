@@ -7,14 +7,14 @@ class App extends Component {
   constructor () {
     super();
       this.state = {
-      districtData: new DistrictRepository(kinderData).data,
+      districtData: new DistrictRepository(kinderData),
       displayArray: []
     };
   }
 
   componentDidMount() {
     this.setState({
-      displayArray: this.state.districtData
+      displayArray: this.state.districtData.findAllMatches()
     });
   }
 
