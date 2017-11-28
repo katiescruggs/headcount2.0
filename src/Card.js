@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function displayData(districtData) {
   if (districtData !== undefined) {
@@ -24,4 +25,9 @@ const Card = ({districtName, districtData}) => (
   </div>
 )
 
-export default Card
+export default Card;
+
+Card.propTypes = {
+  districtName: PropTypes.string,
+  districtData: PropTypes.object
+}

@@ -1,5 +1,6 @@
 import React from 'react';
-import Card from './Card.js'
+import Card from './Card.js';
+import PropTypes from 'prop-types';
 
 const CardContainer = ({districtArray}) => (
   <div className="card-container">
@@ -19,4 +20,8 @@ const CardContainer = ({districtArray}) => (
 
 )
 
-export default CardContainer
+export default CardContainer;
+
+CardContainer.propTypes = {
+  districtArray: PropTypes.array
+};
