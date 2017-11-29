@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Card.css'
+import '../styles/Card.css'
 import Check from 'react-icons/lib/fa/check'
 
 

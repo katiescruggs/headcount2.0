@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../styles/App.css';
 import DistrictRepository from './helper';
-import kinderData from '../data/kindergartners_in_full_day_program';
+import kinderData from '../../data/kindergartners_in_full_day_program';
 import CardContainer from './CardContainer.js';
 import Search from './Search.js';
 

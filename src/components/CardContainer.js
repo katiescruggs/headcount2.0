@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card.js';
 import PropTypes from 'prop-types';
-import './CardContainer.css'
+import '../styles/CardContainer.css'
 
 const CardContainer = ({districtArray}) => (
   <div className="card-container">
