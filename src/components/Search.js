@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Search.css'
+import '../styles/Search.css'
 
 function Search(props) {
   const handleInputChange = (e) => {
