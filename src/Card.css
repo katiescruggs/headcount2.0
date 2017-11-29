@@ -13,3 +13,8 @@ ul.card-data {
 .hide {
   visibility: hidden;
 }
+
+.icon-span {
+  width: 20px;
+  display: inline-block;
+}

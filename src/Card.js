@@ -5,16 +5,17 @@ import Check from 'react-icons/lib/fa/check'
 
 
 const checkIcon = (num) => {
-  return num >= 0.5 ? <Check /> : <span className = "hide"><Check /> </span>;
+  return num >= 0.5 ? <Check /> : null;
 }
 
+//
 
 function displayData(districtData) {
   if (districtData !== undefined) {
   const years = Object.keys(districtData);
     return years.map((year, index) => {
         return (
-         <li key={index}> <span>{checkIcon(districtData[year])} </span> <strong>{year}</strong>: {districtData[year]}</li>
+         <li key={index}> <span className = "icon-span">{checkIcon(districtData[year])} </span> <strong>{year}</strong>: {districtData[year]}</li>
         )
       })
   } else {
