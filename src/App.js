@@ -26,7 +26,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Welcome To Headcount 2.0</h1>
+      <div className = 'main-hed'>
+        <h1>Headcount 2.0</h1>
+      </div> 
         <Search filterDistricts={this.filterDistricts}/>
         
         { this.state.displayArray.length &&

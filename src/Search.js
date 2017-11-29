@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Search.css'
 
 function Search(props) {
   const handleInputChange = (e) => {
@@ -7,9 +8,11 @@ function Search(props) {
   }
 
   return (
+    <div className = "input-container">
       <input className="search-input" 
              placeholder="Search for a school district."
              onChange={(e) => handleInputChange(e)} />
+    </div>
   )
 }
 

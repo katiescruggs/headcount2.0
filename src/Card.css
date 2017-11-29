@@ -27,13 +27,13 @@ ul.card-data {
 .icon-span {
   width: 20px;
   display: inline-block;
-  color: #C9654E;
+  color: #139fdc;
 }
 
 .card-head {
     display: flex;
     justify-content: center;
-    background: #4EB2C9;
+    background: #26517e;
     color: white;
     font-size: 15px;
     text-align: center;

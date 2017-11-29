@@ -1,1 +1,7 @@
-/*APP COMPONENT RELATED CSS GOES HERE*/
+.main-hed {
+  background: #0b1d35;
+  color: #ffffff;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
