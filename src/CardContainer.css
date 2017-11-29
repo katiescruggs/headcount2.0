@@ -13,18 +13,24 @@
 
 @media screen and (max-width: 1200px) {
   .card-container {
-    width: 900px;
+    width: 1000px;
   } 
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .card-container {
-    width: 600px;
+    width: 750px;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .card-container { 
-    width: 300px;
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .card-container { 
+    width: 250px;
   }
 }
