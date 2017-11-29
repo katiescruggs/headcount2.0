@@ -31,11 +31,11 @@ class App extends Component {
       </div> 
         <Search filterDistricts={this.filterDistricts}/>
         
-        { this.state.displayArray.length &&
+        { this.state.displayArray.length > 0 &&
           <CardContainer districtArray={this.state.displayArray} />
         }
         
-        { !this.state.displayArray.length &&
+        { this.state.displayArray.length === 0 &&
           <div className="no-results">
             <p>No school districts found...</p>
           </div>
