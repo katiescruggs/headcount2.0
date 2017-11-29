@@ -10,7 +10,8 @@ class App extends Component {
     super();
     this.state = {
       districtData: new DistrictRepository(kinderData),
-      displayArray: []
+      displayArray: [],
+      comparisonCards: []
     };
   }
 
@@ -23,6 +24,18 @@ class App extends Component {
     this.setState({displayArray: filteredDistricts})
   }
 
+ // const newIdeas = this.state.ideas.filter(idea => idea.id !== id)
+ //    this.setState({ideas: newIdeas})
+ //  }
+
+  handleClick = (id) => {
+    const newComparisonCard = this.state.districtData.findByName(id);
+    const newComparisonCards = this.state.comparisonCards < 2 ? [...this.state.comparisonCards, newComparisonCard] : [newComparisonCard];
+  
+
+    this.setState({comparisonCards: newComparisonCards}, () => console.log(this.state.comparisonCards))
+  }
+
   render() {
     return (
       <div className="App">
@@ -32,7 +45,8 @@ class App extends Component {
         <Search filterDistricts={this.filterDistricts}/>
         
         { this.state.displayArray.length > 0 &&
-          <CardContainer districtArray={this.state.displayArray} />
+          <CardContainer districtArray={this.state.displayArray}
+                          handleClick = {this.handleClick} />
         }
         
         { this.state.displayArray.length === 0 &&
