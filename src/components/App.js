@@ -8,7 +8,7 @@ import Search from './Search.js';
 class App extends Component {
   constructor () {
     super();
-      this.state = {
+    this.state = {
       districtData: new DistrictRepository(kinderData),
       displayArray: []
     };
@@ -26,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <div className = 'main-hed'>
+      <div className="main-hed">
         <h1>Headcount 2.0</h1>
       </div> 
         <Search filterDistricts={this.filterDistricts}/>
@@ -35,11 +35,11 @@ class App extends Component {
           <CardContainer districtArray={this.state.displayArray} />
         }
         
-       { !this.state.displayArray.length &&
-        <div className="no-results">
-          <p>No school districts found...</p>
-        </div>
-       }
+        { !this.state.displayArray.length &&
+          <div className="no-results">
+            <p>No school districts found...</p>
+          </div>
+        }
       </div>
     );
   } 
