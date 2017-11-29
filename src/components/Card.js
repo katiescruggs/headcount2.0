@@ -17,16 +17,25 @@ const displayData = (districtData) => {
   });
 }
 
-const Card = ({districtName, districtData}) => {
+const buttonClick = (handleClick, districtName, card) => {
+  handleClick(districtName)
+}
+
+const Card = ({districtName, districtData, handleClick}) => {
   if (districtData !== undefined) {
     return (
       <div className="card">
         <div className="card-head">
           <h2>{districtName}</h2>
         </div>
-        <ul className="card-data">
-          {displayData(districtData)}
-        </ul>
+        <div className = "data-list">
+          <ul className="card-data">
+            {displayData(districtData)}
+          </ul>
+        </div>
+        <div className = "button">
+          <button className = "compare-button" onClick={() => buttonClick(handleClick, districtName, )}>Compare</button>
+        </div>
       </div>
     );
   } else {

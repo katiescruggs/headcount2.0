@@ -12,11 +12,25 @@ h2 {
 }
 
 .card {
-  box-shadow: 1.5px 3px 3px 1.5px #566782;
-  background: #ffffff;
-  margin: 10px;
-  width: 230px;
-  height: 280px;
+    box-shadow: 1.5px 3px 3px 1.5px #566782;
+    background: #ffffff;
+    margin: 10px;
+    width: 230px;
+    height: 330px;
+ 
+}
+
+.card-clicked .card-head {
+  background-color: red;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+.compare-button {
+  width: 70%;
 }
 
 ul.card-data {
