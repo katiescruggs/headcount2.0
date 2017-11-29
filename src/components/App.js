@@ -30,8 +30,7 @@ class App extends Component {
 
   handleClick = (id) => {
     const newComparisonCard = this.state.districtData.findByName(id);
-    const newComparisonCards = this.state.comparisonCards < 2 ? [...this.state.comparisonCards, newComparisonCard] : [newComparisonCard];
-  
+    const newComparisonCards = this.state.comparisonCards.length < 2 ? [...this.state.comparisonCards, newComparisonCard] : [...this.state.comparisonCards];
 
     this.setState({comparisonCards: newComparisonCards}, () => console.log(this.state.comparisonCards))
   }
@@ -46,7 +45,8 @@ class App extends Component {
         
         { this.state.displayArray.length > 0 &&
           <CardContainer districtArray={this.state.displayArray}
-                          handleClick = {this.handleClick} />
+                         comparisonCards={this.state.comparisonCards}
+                         handleClick = {this.handleClick} />
         }
         
         { this.state.displayArray.length === 0 &&
