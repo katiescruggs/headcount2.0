@@ -18,7 +18,8 @@ const displayData = (districtData) => {
 }
 
 const buttonClick = (handleClick, districtName, card) => {
-  handleClick(districtName)
+  handleClick(districtName);
+  console.log(this);
 }
 
 const Card = ({districtName, districtData, handleClick}) => {

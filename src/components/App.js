@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       districtData: new DistrictRepository(kinderData),
       displayArray: [],
-      comparisonCard1: ''
+      comparisonCards: []
     };
   }
 
@@ -29,10 +29,11 @@ class App extends Component {
  //  }
 
   handleClick = (id) => {
-    const comparisonCard1 = this.state.districtData.findByName(id)
+    const newComparisonCard = this.state.districtData.findByName(id);
+    const newComparisonCards = this.state.comparisonCards < 2 ? [...this.state.comparisonCards, newComparisonCard] : [newComparisonCard];
   
 
-    this.setState({comparisonCard1}, () => console.log(this.state.comparisonCard1))
+    this.setState({comparisonCards: newComparisonCards}, () => console.log(this.state.comparisonCards))
   }
 
   render() {
