@@ -3,6 +3,10 @@ export default class DistrictRepository {
     this.data = this.data(districtData);
   }
 
+  roundTo1000(number) {
+    return Math.round(number * 1000)/1000;
+  }
+
   data(dirtyData) {
     let cleanData = {};
 
@@ -13,7 +17,7 @@ export default class DistrictRepository {
         dataObject[currentDistrict] = {};
       }
 
-      let data = item.DataFormat === 'Percent' ? Math.round(item.Data * 1000)/1000 : item.Data;
+      let data = item.DataFormat === 'Percent' ? this.roundTo1000(item.Data) : item.Data;
 
       dataObject[currentDistrict][item.TimeFrame] = data;
        if (isNaN(dataObject[currentDistrict][item.TimeFrame])) {
@@ -66,7 +70,7 @@ export default class DistrictRepository {
       return sum;
     }, 0);
 
-    let average = Math.round((sum / dataYears.length) * 1000) / 1000;
+    let average = this.roundTo1000(sum / dataYears.length);
 
     return average;
   }
@@ -74,7 +78,7 @@ export default class DistrictRepository {
   compareDistrictAverages(districtOne, districtTwo) {
     let averageOne = this.findAverage(districtOne);
     let averageTwo = this.findAverage(districtTwo);
-    let compared = Math.round((averageOne / averageTwo) * 1000) / 1000;
+    let compared = this.roundTo1000(averageOne / averageTwo);
 
     return { [districtOne.toUpperCase()]: averageOne, 
              [districtTwo.toUpperCase()]: averageTwo,
