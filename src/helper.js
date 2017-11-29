@@ -25,10 +25,6 @@ export default class DistrictRepository {
     return cleanData;
   }
 
-  consoleLog() {
-    console.log('hello')
-  }
-
   findByName(searchValue) {
     if (!searchValue) {
       return undefined
@@ -58,5 +54,30 @@ export default class DistrictRepository {
       }
     });
     return matches;
+  }
+
+  findAverage(districtName) {
+    let district = this.findByName(districtName);
+
+    let dataYears = Object.keys(district.data);
+
+    let sum = dataYears.reduce( (sum, dataYear) => {
+      sum += district.data[dataYear];
+      return sum;
+    }, 0);
+
+    let average = Math.round((sum / dataYears.length) * 1000) / 1000;
+
+    return average;
+  }
+
+  compareDistrictAverages(districtOne, districtTwo) {
+    let averageOne = this.findAverage(districtOne);
+    let averageTwo = this.findAverage(districtTwo);
+    let compared = Math.round((averageOne / averageTwo) * 1000) / 1000;
+
+    return { [districtOne.toUpperCase()]: averageOne, 
+             [districtTwo.toUpperCase()]: averageTwo,
+             compared };
   }
 }
