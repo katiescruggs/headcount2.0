@@ -5,7 +5,7 @@ import './CardContainer.css'
 
 const CardContainer = ({districtArray}) => (
   <div className="card-container">
-    <div className = "card-holder">
+    <div className="card-holder">
       { districtArray.map((district) => {
           return (
             <Card 

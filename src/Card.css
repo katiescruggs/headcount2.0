@@ -1,8 +1,21 @@
+h2 {
+    display: block;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.card-head h2 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
 .card {
   box-shadow: 1.5px 3px 3px 1.5px #566782;
   background: #ffffff;
   margin: 10px;
-  width: 280px;
+  width: 230px;
   height: 280px;
 }
 
@@ -10,6 +23,19 @@ ul.card-data {
     list-style-type: none;
 }
 
-.hide {
-  visibility: hidden;
+
+.icon-span {
+  width: 20px;
+  display: inline-block;
+  color: #139fdc;
+}
+
+.card-head {
+    display: flex;
+    justify-content: center;
+    background: #26517e;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    height: 60px;
 }
