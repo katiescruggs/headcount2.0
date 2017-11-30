@@ -7,16 +7,19 @@ const CardContainer = ({districtArray, comparisonCards, handleClick}) => (
   <div className="card-container">
     <div className="card-holder">
       { districtArray.map((district) => {
-          console.log(comparisonCards)
+         
           let type = '';
+          let buttonText = 'compare';
 
           if(comparisonCards.length === 1) {
             if(district.location === comparisonCards[0].location) {
               type = 'card-clicked';
+              buttonText = 'remove';
             }
           } else if(comparisonCards.length === 2) {
             if(district.location === comparisonCards[0].location || district.location === comparisonCards[1].location) {
               type = 'card-clicked';
+              buttonText = 'remove';
             }
           }
           return (
@@ -24,6 +27,7 @@ const CardContainer = ({districtArray, comparisonCards, handleClick}) => (
               key={district.location}
               id={district.location}
               type={type}
+              buttonText = {buttonText}
               districtName={district.location}  
               districtData={district.data}
               handleClick = {handleClick} />
