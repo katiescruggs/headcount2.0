@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './Card.js';
 import ComparisonCard from './ComparisonCard.js'
+import '../styles/CompareContainer.css'
 
 const CompareCardContainer = ({districtOne, districtTwo, handleClick, compareDistrictAverages}) => {
   
