@@ -9,11 +9,11 @@ const CardContainer = ({districtArray, districtOne, districtTwo, handleClick}) =
       { districtArray.map((district) => {
          
           let type = '';
-          let buttonText = 'compare';
+          let buttonText = 'Compare';
 
           if(district.location === districtOne.location || district.location === districtTwo.location) {
             type='card-clicked';
-            buttonText='remove compare';
+            buttonText='Remove Compare';
           }
 
           return (

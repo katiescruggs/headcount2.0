@@ -3,7 +3,7 @@
   flex-direction: row;
   margin-left: auto;
   margin-right: auto;
-  width: 1200px;
+  width: 750px;
 }
 
 .compare-card-holder {
@@ -11,11 +11,6 @@
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 1200px) {
-  .compare-card-container {
-    width: 1000px;
-  } 
-}
 
 @media screen and (max-width: 1000px) {
   .compare-card-container {
@@ -30,7 +25,7 @@
 }
 
 @media screen and (max-width: 520px) {
-  .card-container { 
+  .compare-card-container { 
     width: 250px;
   }
 }

@@ -17,7 +17,7 @@ const CompareCardContainer = ({districtOne, districtTwo, handleClick, compareDis
             districtData={districtOne.data}
             handleClick={handleClick}
             type='card-clicked'
-            buttonText='remove-compare' />
+            buttonText='Remove Compare' />
       <div>
       <ComparisonCard 
         districtOne = {districtOne.location}
@@ -34,7 +34,7 @@ const CompareCardContainer = ({districtOne, districtTwo, handleClick, compareDis
             districtData={districtTwo.data}
             handleClick={handleClick}
             type='card-clicked'
-            buttonText='remove-compare' />
+            buttonText='Remove Compare' />
     </div>
     </div>
   )
