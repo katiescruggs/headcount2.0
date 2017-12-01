@@ -10,12 +10,16 @@ import '../styles/ComparisonCard.css'
 const ComparisonCard = ({districtOne, districtTwo, compareDistrictAverages}) => {
 
 const comparison = compareDistrictAverages(districtOne, districtTwo);
-console.log(comparison)
+console.log(comparison.compared)
   return (
     <div className = "comparison-card">
-    <p><span>{districtOne} average: </span>{comparison[districtOne]}</p>
+      <div className = "comparison-card-head">
+        <h2> Averages </h2> 
+      </div> 
+    <p>{districtOne} average:</p>
+    <p><span className = "big-number"> {comparison[districtOne]}</span></p>
      <p><span>{districtTwo} average: </span>{comparison[districtTwo]}</p>
-     
+     <p>Average of the two districts: {comparison.compared} </p>
     </div>
   )
 }
