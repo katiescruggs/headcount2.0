@@ -4,6 +4,7 @@ import DistrictRepository from './helper';
 import kinderData from '../../data/kindergartners_in_full_day_program';
 import CardContainer from './CardContainer.js';
 import Search from './Search.js';
+import CompareCardContainer from './CompareCardContainer.js';
 
 class App extends Component {
   constructor () {
@@ -66,11 +67,16 @@ class App extends Component {
   
 
   render() {
+    const {districtData, displayArray, districtOne, districtTwo} = this.state;
     return (
       <div className="App">
       <div className="main-hed">
         <h1>Headcount 2.0</h1>
       </div> 
+        <CompareCardContainer districtOne={districtOne} 
+                              districtTwo={districtTwo} 
+                              handleClick={this.handleClick}
+                              compareDistrictAverages={districtData.compareDistrictAverages}/>
         <Search filterDistricts={this.filterDistricts}/>
         
         { this.state.displayArray.length > 0 &&

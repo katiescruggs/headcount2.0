@@ -29,7 +29,7 @@ export default class DistrictRepository {
     return cleanData;
   }
 
-  findByName(searchValue) {
+  findByName = (searchValue) => {
     if (!searchValue) {
       return undefined
     } 
@@ -39,7 +39,7 @@ export default class DistrictRepository {
     }
   }
 
-  findAllMatches(searchValue) {
+  findAllMatches = (searchValue) => {
     if(!searchValue) {
       let allData = Object.keys(this.data).map(key => {
         return {
@@ -60,9 +60,9 @@ export default class DistrictRepository {
     return matches;
   }
 
-  findAverage(districtName) {
+  findAverage = (districtName) => {
     let district = this.findByName(districtName);
-
+   
     let dataYears = Object.keys(district.data);
 
     let sum = dataYears.reduce( (sum, dataYear) => {
@@ -75,7 +75,7 @@ export default class DistrictRepository {
     return average;
   }
 
-  compareDistrictAverages(districtOne, districtTwo) {
+  compareDistrictAverages = (districtOne, districtTwo) => {
     let averageOne = this.findAverage(districtOne);
     let averageTwo = this.findAverage(districtTwo);
     let compared = this.roundTo1000(averageOne / averageTwo);
