@@ -3,7 +3,7 @@ import Card from './Card.js';
 import PropTypes from 'prop-types';
 import '../styles/CardContainer.css'
 
-const CardContainer = ({districtArray, comparisonCards, handleClick}) => (
+const CardContainer = ({districtArray, districtOne, districtTwo, handleClick}) => (
   <div className="card-container">
     <div className="card-holder">
       { districtArray.map((district) => {
@@ -11,27 +11,23 @@ const CardContainer = ({districtArray, comparisonCards, handleClick}) => (
           let type = '';
           let buttonText = 'compare';
 
-          // if(comparisonCards.length === 1) {
-          //   if(district.location === comparisonCards[0].location) {
-          //     type = 'card-clicked';
-          //     buttonText = 'remove';
-          //   }
-          // } else if(comparisonCards.length === 2) {
-          //   if(district.location === comparisonCards[0].location || district.location === comparisonCards[1].location) {
-          //     type = 'card-clicked';
-          //     buttonText = 'remove';
-          //   }
-          // }
+          if(district.location === districtOne.location || district.location === districtTwo.location) {
+            type='card-clicked';
+            buttonText='remove compare';
+          }
+
           return (
             <Card 
               key={district.location}
               id={district.location}
               districtName={district.location}  
               districtData={district.data}
-              handleClick = {handleClick} />
-          )
+              handleClick = {handleClick}
+              type={type}
+              buttonText={buttonText} />
+          );
       })
-      }
+    }
       <Card />
     </div>
   </div>

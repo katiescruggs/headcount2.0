@@ -4,6 +4,7 @@ import DistrictRepository from './helper';
 import kinderData from '../../data/kindergartners_in_full_day_program';
 import CardContainer from './CardContainer.js';
 import Search from './Search.js';
+import CompareCardContainer from './CompareCardContainer.js';
 
 class App extends Component {
   constructor () {
@@ -11,7 +12,7 @@ class App extends Component {
     this.state = {
       districtData: new DistrictRepository(kinderData),
       displayArray: [],
-      cardActive: false,
+      compareSwitch: false,
       districtOne: '',
       districtTwo: '' 
     };
@@ -26,26 +27,22 @@ class App extends Component {
     this.setState({displayArray: filteredDistricts})
   }
 
-checkRemove = (districtName) =>{
-  console.log('remove button works')
-  if (this.state.comparisonCards.length > 1 ) {
-    if (this.state.comparisonCards[0].location === districtName ||
-          this.state.comparisonCards[1].location === districtName ) {
-        const newComparisonCards = this.state.comparisonCards.filter((district) =>{
-          return district.location !== districtName
-        });
-
-           this.setState({comparisonCards: newComparisonCards})
-
-    } 
+  removeCompare = (districtToRemove) => {
+    const compareBoolean = districtToRemove === 'districtTwo';
+    this.setState({compareSwitch: compareBoolean, [districtToRemove]: ''}, () => console.log(this.state));
   }
-}
-    handleClick = (districtName) =>{
-      const newComparisonCard = this.state.districtData.findByName(districtName)
-      this.setState({districtOne: newComparisonCard})
-      console.log('handle click works')
-      console.log(this.state)
+
+  handleClick = (districtName) => {
+    if(districtName === this.state.districtOne.location) {
+      this.removeCompare('districtOne');
+    } else if(districtName === this.state.districtTwo.location) {
+      this.removeCompare('districtTwo');
+    } else {
+      const newComparisonCard = this.state.districtData.findByName(districtName);
+      const compareDistrict = this.state.compareSwitch ? 'districtTwo' : 'districtOne';
+      this.setState({compareSwitch: !this.state.compareSwitch, [compareDistrict]: newComparisonCard}, () => console.log(this.state)) 
     }
+  }
 
   //   setComparePosition (district) {
   //   const pos = this.state.compareCard ? 'firstDistrict' : 'secondDistrict';
@@ -70,16 +67,22 @@ checkRemove = (districtName) =>{
   
 
   render() {
+    const {districtData, displayArray, districtOne, districtTwo} = this.state;
     return (
       <div className="App">
       <div className="main-hed">
         <h1>Headcount 2.0</h1>
       </div> 
+        <CompareCardContainer districtOne={districtOne} 
+                              districtTwo={districtTwo} 
+                              handleClick={this.handleClick}
+                              compareDistrictAverages={districtData.compareDistrictAverages}/>
         <Search filterDistricts={this.filterDistricts}/>
         
         { this.state.displayArray.length > 0 &&
           <CardContainer districtArray={this.state.displayArray}
-                         comparisonCards={this.state.comparisonCards}  
+                         districtOne={this.state.districtOne}
+                         districtTwo={this.state.districtTwo}
                          handleClick = {this.handleClick} />
                         
         }

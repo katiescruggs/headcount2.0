@@ -25,7 +25,7 @@ const buttonClick = (handleClick, districtName, card) => {
 const Card = ({districtName, districtData, handleClick, type, buttonText}) => {
   if (districtData !== undefined) {
     return (
-      <div className="card">
+      <div className={`card ${type}`}>
         <div className="card-head">
           <h2>{districtName}</h2>
         </div>
@@ -35,7 +35,7 @@ const Card = ({districtName, districtData, handleClick, type, buttonText}) => {
           </ul>
         </div>
         <div className = "button">
-          <button className = "compare-button" onClick={() => buttonClick(handleClick, districtName, )}>Compare</button>
+          <button className = "compare-button" onClick={() => buttonClick(handleClick, districtName, )}>{buttonText}</button>
         </div>
       </div>
     );
