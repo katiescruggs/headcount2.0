@@ -16,10 +16,12 @@ console.log(comparison.compared)
       <div className = "comparison-card-head">
         <h2> Averages </h2> 
       </div> 
-    <p>{districtOne} average:</p>
-    <p><span className = "big-number"> {comparison[districtOne]}</span></p>
-     <p><span>{districtTwo} average: </span>{comparison[districtTwo]}</p>
-     <p>Average of the two districts: {comparison.compared} </p>
+      <p><strong>{districtOne} average:</strong></p>
+      <p><span className = "big-number"> {comparison[districtOne]}</span></p>
+      <p><strong>{districtTwo} average: </strong></p>
+      <p> <span className = "big-number">{comparison[districtTwo]}</span></p>
+      <p><strong>Average of the two districts:</strong></p>
+      <p><span className = "big-number"> {comparison.compared} </span> </p>
     </div>
   )
 }
