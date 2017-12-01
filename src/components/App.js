@@ -40,7 +40,7 @@ class App extends Component {
     } else {
       const newComparisonCard = this.state.districtData.findByName(districtName);
       const compareDistrict = this.state.compareSwitch ? 'districtTwo' : 'districtOne';
-      this.setState({compareSwitch: !this.state.compareSwitch, [compareDistrict]: newComparisonCard}, () => console.log(this.state)) 
+      this.setState({compareSwitch: !this.state.compareSwitch, [compareDistrict]: newComparisonCard}) 
     }
   }
 
