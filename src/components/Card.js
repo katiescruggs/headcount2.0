@@ -22,10 +22,10 @@ const buttonClick = (handleClick, districtName, card) => {
   console.log(this);
 }
 
-const Card = ({districtName, districtData, handleClick, type}) => {
+const Card = ({districtName, districtData, handleClick, type, buttonText}) => {
   if (districtData !== undefined) {
     return (
-      <div className={`card ${type}`}>
+      <div className="card">
         <div className="card-head">
           <h2>{districtName}</h2>
         </div>

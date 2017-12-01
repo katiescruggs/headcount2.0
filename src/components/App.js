@@ -11,7 +11,9 @@ class App extends Component {
     this.state = {
       districtData: new DistrictRepository(kinderData),
       displayArray: [],
-      comparisonCards: []
+      cardActive: false,
+      districtOne: '',
+      districtTwo: '' 
     };
   }
 
@@ -24,16 +26,48 @@ class App extends Component {
     this.setState({displayArray: filteredDistricts})
   }
 
- // const newIdeas = this.state.ideas.filter(idea => idea.id !== id)
- //    this.setState({ideas: newIdeas})
- //  }
+checkRemove = (districtName) =>{
+  console.log('remove button works')
+  if (this.state.comparisonCards.length > 1 ) {
+    if (this.state.comparisonCards[0].location === districtName ||
+          this.state.comparisonCards[1].location === districtName ) {
+        const newComparisonCards = this.state.comparisonCards.filter((district) =>{
+          return district.location !== districtName
+        });
 
-  handleClick = (id) => {
-    const newComparisonCard = this.state.districtData.findByName(id);
-    const newComparisonCards = this.state.comparisonCards.length < 2 ? [...this.state.comparisonCards, newComparisonCard] : [...this.state.comparisonCards];
+           this.setState({comparisonCards: newComparisonCards})
 
-    this.setState({comparisonCards: newComparisonCards}, () => console.log(this.state.comparisonCards))
+    } 
   }
+}
+    handleClick = (districtName) =>{
+      const newComparisonCard = this.state.districtData.findByName(districtName)
+      this.setState({districtOne: newComparisonCard})
+      console.log('handle click works')
+      console.log(this.state)
+    }
+
+  //   setComparePosition (district) {
+  //   const pos = this.state.compareCard ? 'firstDistrict' : 'secondDistrict';
+  //   this.setState({
+  //     [pos]: district,
+  //     compareCard: !this.state.compareCard
+  //   });
+  // }
+
+
+
+  // handleClick = (districtName) => {
+
+  //       const newComparisonCard = this.state.districtData.findByName(districtName);
+  //       const newComparisonCards = this.state.comparisonCards.length < 2 ? [...this.state.comparisonCards, newComparisonCard] : [...this.state.comparisonCards];
+  //       this.setState({comparisonCards: newComparisonCards}, () => console.log(this.state.comparisonCards))
+  //   if (this.state.comparisonCards.length > 0) {
+  //     this.checkRemove(districtName)
+
+  //   }
+  // } 
+  
 
   render() {
     return (
@@ -45,8 +79,9 @@ class App extends Component {
         
         { this.state.displayArray.length > 0 &&
           <CardContainer districtArray={this.state.displayArray}
-                         comparisonCards={this.state.comparisonCards}
+                         comparisonCards={this.state.comparisonCards}  
                          handleClick = {this.handleClick} />
+                        
         }
         
         { this.state.displayArray.length === 0 &&
