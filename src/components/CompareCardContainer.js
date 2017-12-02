@@ -13,7 +13,7 @@ const CompareCardContainer = (
 
     return (
       <div className="compare-card-container">
-        <div className = "compare-card-holder">
+        <div className="compare-card-holder">
           <Card key={districtOne.location} 
             id={districtOne.location}
             districtName={districtOne.location}
@@ -23,9 +23,9 @@ const CompareCardContainer = (
             buttonText='Remove Compare' />
 
           <ComparisonCard 
-            districtOne = {districtOne.location}
-            districtTwo = {districtTwo.location}
-            compareDistrictAverages = {compareDistrictAverages} />
+            districtOne={districtOne.location}
+            districtTwo={districtTwo.location}
+            compareDistrictAverages={compareDistrictAverages} />
 
           <Card key={districtTwo.location} 
             id={districtTwo.location}
@@ -39,8 +39,8 @@ const CompareCardContainer = (
     );
   } else  {
     return (
-      <div className = "compare-card-container">
-        <div className = "compare-card-holder">
+      <div className="compare-card-container">
+        <div className="compare-card-holder">
           <Card key={districtOne.location} 
             id={districtOne.location}
             districtName={districtOne.location}
