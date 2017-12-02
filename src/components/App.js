@@ -27,14 +27,18 @@ class App extends Component {
     this.setState({displayArray: filteredDistricts});
   }
 
-  removeCompare = (districtToRemove) => {
-    const compareBoolean = districtToRemove === 'districtTwo';
-    this.setState({compareSwitch: compareBoolean, [districtToRemove]: ''}, () => console.log(this.state));
+  removeCompare = (districtToRemove, checkIfTwoExists) => {
+    if(checkIfTwoExists && this.state.districtTwo !== '') {
+      this.setState({compareSwitch: true, districtOne: this.state.districtTwo, districtTwo: ''});
+    } else {
+      const compareBoolean = districtToRemove === 'districtTwo';
+      this.setState({compareSwitch: compareBoolean, [districtToRemove]: ''}, () => console.log(this.state));
+    }
   }
 
   handleClick = (districtName) => {
     if(districtName === this.state.districtOne.location) {
-      this.removeCompare('districtOne');
+      this.removeCompare('districtOne', true);
     } else if(districtName === this.state.districtTwo.location) {
       this.removeCompare('districtTwo');
     } else {
@@ -43,7 +47,6 @@ class App extends Component {
       this.setState({compareSwitch: !this.state.compareSwitch, [compareDistrict]: newComparisonCard}) 
     }
   }
-
  
   render() {
     const {districtData, displayArray, districtOne, districtTwo} = this.state;

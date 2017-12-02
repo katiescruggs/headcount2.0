@@ -37,9 +37,22 @@ const CompareCardContainer = (
         </div>
       </div>
     );
-  } else {
-    return null;
-  }
+  } else  {
+    return (
+      <div className = "compare-card-container">
+        <div className = "compare-card-holder">
+          <Card key={districtOne.location} 
+            id={districtOne.location}
+            districtName={districtOne.location}
+            districtData={districtOne.data}
+            handleClick={handleClick}
+            type='card-clicked'
+            buttonText='Remove Compare' />
+        </div>
+      </div>
+
+    );
+  }  
 };
 
 export default CompareCardContainer;
