@@ -21,11 +21,16 @@ h2 {
 }
 
 .card-clicked .card-head {
-  background-color: red;
+  background-color: #cb252d;
 }
 
 .card-clicked .compare-button{
-  background-color: red;
+  background-color: #cb252d;
+}
+
+.card-clicked .compare-button:hover{
+  background-color: #ffffff;
+  border: 1px solid #cb252d;
 }
 
 .button {
@@ -43,6 +48,7 @@ h2 {
 .compare-button:hover{
   color: #26517e;
   background: #ffffff;
+  border: 1px solid #26517e;
 }
 
 ul.card-data {
