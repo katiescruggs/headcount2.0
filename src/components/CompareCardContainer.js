@@ -1,25 +1,31 @@
 import React from 'react';
 import Card from './Card.js';
+import ComparisonCard from './ComparisonCard.js'
+import '../styles/CompareContainer.css'
 
 const CompareCardContainer = ({districtOne, districtTwo, handleClick, compareDistrictAverages}) => {
   
+
   if(districtOne !== '' && districtTwo !== '') {
-  const comparison = compareDistrictAverages(districtOne.location, districtTwo.location);
-  console.log(comparison);
+
   return (
     <div className="compare-card-container">
+      <div className = "compare-card-holder">
       <Card key={districtOne.location} 
             id={districtOne.location}
             districtName={districtOne.location}
             districtData={districtOne.data}
             handleClick={handleClick}
             type='card-clicked'
-            buttonText='remove-compare' />
+            buttonText='Remove Compare' />
       <div>
-        Comparison Card here--should we make a new component?
-        <p><span>{districtOne.location} average: </span>{comparison[districtOne.location]}</p>
-        <p><span>{districtTwo.location} average: </span>{comparison[districtTwo.location]}</p>
-        <p><span>Weird Comparison Number: </span>{comparison.compared}</p>
+      <ComparisonCard 
+        districtOne = {districtOne.location}
+        districtTwo = {districtTwo.location}
+        compareDistrictAverages = {compareDistrictAverages} />
+
+
+
       </div>
 
       <Card key={districtTwo.location} 
@@ -28,7 +34,8 @@ const CompareCardContainer = ({districtOne, districtTwo, handleClick, compareDis
             districtData={districtTwo.data}
             handleClick={handleClick}
             type='card-clicked'
-            buttonText='remove-compare' />
+            buttonText='Remove Compare' />
+    </div>
     </div>
   )
   } else {

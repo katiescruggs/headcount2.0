@@ -24,6 +24,10 @@ h2 {
   background-color: red;
 }
 
+.card-clicked .compare-button{
+  background-color: red;
+}
+
 .button {
     display: flex;
     justify-content: center;
@@ -31,6 +35,14 @@ h2 {
 
 .compare-button {
   width: 70%;
+  background: #26517e;
+  color: #ffffff;
+  height: 30px;
+}
+
+.compare-button:hover{
+  color: #26517e;
+  background: #ffffff;
 }
 
 ul.card-data {

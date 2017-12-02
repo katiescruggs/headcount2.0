@@ -40,32 +40,11 @@ class App extends Component {
     } else {
       const newComparisonCard = this.state.districtData.findByName(districtName);
       const compareDistrict = this.state.compareSwitch ? 'districtTwo' : 'districtOne';
-      this.setState({compareSwitch: !this.state.compareSwitch, [compareDistrict]: newComparisonCard}, () => console.log(this.state)) 
+      this.setState({compareSwitch: !this.state.compareSwitch, [compareDistrict]: newComparisonCard}) 
     }
   }
 
-  //   setComparePosition (district) {
-  //   const pos = this.state.compareCard ? 'firstDistrict' : 'secondDistrict';
-  //   this.setState({
-  //     [pos]: district,
-  //     compareCard: !this.state.compareCard
-  //   });
-  // }
-
-
-
-  // handleClick = (districtName) => {
-
-  //       const newComparisonCard = this.state.districtData.findByName(districtName);
-  //       const newComparisonCards = this.state.comparisonCards.length < 2 ? [...this.state.comparisonCards, newComparisonCard] : [...this.state.comparisonCards];
-  //       this.setState({comparisonCards: newComparisonCards}, () => console.log(this.state.comparisonCards))
-  //   if (this.state.comparisonCards.length > 0) {
-  //     this.checkRemove(districtName)
-
-  //   }
-  // } 
-  
-
+ 
   render() {
     const {districtData, displayArray, districtOne, districtTwo} = this.state;
     return (
