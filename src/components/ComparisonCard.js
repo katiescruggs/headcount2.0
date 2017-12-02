@@ -13,12 +13,12 @@ const ComparisonCard = (
       <div className = "comparison-card-head">
         <h2> Averages </h2> 
       </div> 
-      <p><strong>{districtOne} average:</strong></p>
-      <p><span className = "big-number"> {comparison[districtOne]}</span></p>
-      <p><strong>{districtTwo} average: </strong></p>
-      <p> <span className = "big-number">{comparison[districtTwo]}</span></p>
-      <p><strong>Average of the two districts:</strong></p>
-      <p><span className = "big-number"> {comparison.compared} </span> </p>
+      <p><strong>{districtOne} AVERAGE:</strong></p>
+      <p><span className = "big-number district1-avg"> {comparison[districtOne]} </span></p>
+      <p><strong>{districtTwo} AVERAGE: </strong></p>
+      <p> <span className = "big-number district2-avg"> {comparison[districtTwo]} </span></p>
+      <p><strong>COMPARISON RATIO:</strong></p>
+      <p><span className = "big-number comparison"> {comparison.compared} </span> </p>
     </div>
   );
 };
