@@ -6,9 +6,18 @@ h2 {
     -webkit-margin-end: 0px;
 }
 
+.card-head {
+    display: flex;
+    justify-content: center;
+    background: #26517e;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    height: 60px;
+    align-items: center;
+}
 .card-head h2 {
   font-size: 20px;
-  margin-top: 10px;
 }
 
 .card {
@@ -60,14 +69,4 @@ ul.card-data {
   width: 20px;
   display: inline-block;
   color: #139fdc;
-}
-
-.card-head {
-    display: flex;
-    justify-content: center;
-    background: #26517e;
-    color: white;
-    font-size: 15px;
-    text-align: center;
-    height: 60px;
 }
