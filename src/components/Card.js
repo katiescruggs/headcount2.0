@@ -31,7 +31,7 @@ const buttonClick = (handleClick, districtName) => {
 const Card = ({districtName, districtData, handleClick, type, buttonText}) => {
   if (districtData !== undefined) {
     return (
-      <div className={`card ${type}`}>
+      <div className={`card ${type} ${districtName}`}>
         <div className="card-head">
           <h2>{districtName}</h2>
         </div>

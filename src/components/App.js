@@ -32,7 +32,7 @@ class App extends Component {
       this.setState({compareSwitch: true, districtOne: this.state.districtTwo, districtTwo: ''});
     } else {
       const compareBoolean = districtToRemove === 'districtTwo';
-      this.setState({compareSwitch: compareBoolean, [districtToRemove]: ''}, () => console.log(this.state));
+      this.setState({compareSwitch: compareBoolean, [districtToRemove]: ''});
     }
   }
 
