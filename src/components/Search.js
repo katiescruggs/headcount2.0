@@ -4,7 +4,7 @@ import '../styles/Search.css';
 
 function Search({filterDistricts}) {
   return (
-    <div className = "input-container">
+    <div className="input-container">
       <input 
         className="search-input" 
         placeholder="Search for a school district."

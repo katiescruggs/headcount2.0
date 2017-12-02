@@ -27,7 +27,7 @@ const CardContainer = (
             id={district.location}
             districtName={district.location}  
             districtData={district.data}
-            handleClick = {handleClick}
+            handleClick={handleClick}
             type={type}
             buttonText={buttonText} />
         );

@@ -62,10 +62,10 @@ class App extends Component {
         <Search filterDistricts={this.filterDistricts}/>
         
         { this.state.displayArray.length > 0 &&
-          <CardContainer districtArray={this.state.displayArray}
-                         districtOne={this.state.districtOne}
-                         districtTwo={this.state.districtTwo}
-                         handleClick = {this.handleClick} />
+          <CardContainer districtArray={displayArray}
+                         districtOne={districtOne}
+                         districtTwo={districtTwo}
+                         handleClick={this.handleClick} />
                         
         }
         
