@@ -1,12 +1,13 @@
 import React from 'react';
-import '../styles/ComparisonCard.css'
+import '../styles/ComparisonCard.css';
 
+const ComparisonCard = (
+  { districtOne, 
+    districtTwo, 
+    compareDistrictAverages}) => {
 
+  const comparison = compareDistrictAverages(districtOne, districtTwo);
 
-const ComparisonCard = ({districtOne, districtTwo, compareDistrictAverages}) => {
-
-const comparison = compareDistrictAverages(districtOne, districtTwo);
-console.log(comparison.compared)
   return (
     <div className = "comparison-card">
       <div className = "comparison-card-head">
@@ -19,7 +20,7 @@ console.log(comparison.compared)
       <p><strong>Average of the two districts:</strong></p>
       <p><span className = "big-number"> {comparison.compared} </span> </p>
     </div>
-  )
-}
+  );
+};
 
 export default ComparisonCard; 

@@ -24,7 +24,7 @@ class App extends Component {
 
   filterDistricts = (searchTerm) => {
     const filteredDistricts = this.state.districtData.findAllMatches(searchTerm);
-    this.setState({displayArray: filteredDistricts})
+    this.setState({displayArray: filteredDistricts});
   }
 
   removeCompare = (districtToRemove) => {
