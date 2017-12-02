@@ -6,9 +6,18 @@ h2 {
     -webkit-margin-end: 0px;
 }
 
+.card-head {
+    display: flex;
+    justify-content: center;
+    background: #26517e;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    height: 60px;
+    align-items: center;
+}
 .card-head h2 {
   font-size: 20px;
-  margin-top: 10px;
 }
 
 .card {
@@ -21,11 +30,16 @@ h2 {
 }
 
 .card-clicked .card-head {
-  background-color: red;
+  background-color: #cb252d;
 }
 
 .card-clicked .compare-button{
-  background-color: red;
+  background-color: #cb252d;
+}
+
+.card-clicked .compare-button:hover{
+  background-color: #ffffff;
+  border: 1px solid #cb252d;
 }
 
 .button {
@@ -43,6 +57,7 @@ h2 {
 .compare-button:hover{
   color: #26517e;
   background: #ffffff;
+  border: 1px solid #26517e;
 }
 
 ul.card-data {
@@ -54,14 +69,4 @@ ul.card-data {
   width: 20px;
   display: inline-block;
   color: #139fdc;
-}
-
-.card-head {
-    display: flex;
-    justify-content: center;
-    background: #26517e;
-    color: white;
-    font-size: 15px;
-    text-align: center;
-    height: 60px;
 }
