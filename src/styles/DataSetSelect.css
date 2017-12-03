@@ -1,0 +1,40 @@
+.control-button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.select-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.select-data-instructions {
+  margin-top: 0;
+}
+
+
+.control-button {
+  background-color: #139fdc;
+  color: black;
+  font-size: 16px;
+  padding: 10px;
+  margin:5px 0;
+}
+
+.control-button:hover {
+  background-color: #cb252d;
+  color: white;
+}
+
+.control-button.active {
+  background-color: #26517e;
+  color: white;
+}
+
+.control-button-container select {
+    height: 40px;
+    font-size: 20px;
+}
