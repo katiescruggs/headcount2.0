@@ -114,8 +114,8 @@ class App extends Component {
               Headcount</h1>
           </div>
             
-          <div className = "select-data">
-            <p> Select a data set </p>
+          <div className="select-data">
+            <p className="select-data-instructions"> Select a data set </p>
             <ControlButtons buttonNames={dataFileNames}
               changeDataSet={this.changeDataSet}
               currentDataFile={currentDataFile}/>
