@@ -7,7 +7,7 @@ function Search({filterDistricts}) {
     <div className="input-container">
       <input 
         className="search-input" 
-        placeholder="Search for a school district."
+        placeholder="Search for a school district"
         onChange={(e) => filterDistricts(e.target.value)} />
     </div>
   );

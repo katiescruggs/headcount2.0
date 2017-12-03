@@ -1,11 +1,40 @@
+h1 {
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
 .main-hed {
-  background: #0b1d35;
-  color: #ffffff;
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
+    background: #0b1d35;
+    color: #ffffff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 10px 20px 20px 20px;
+    align-items: center;
+}
+ 
+.main-hed h1 {
+  font-size: 50px;
 }
 
 .data-subheader {
   text-align: center;
+  margin-top: 20px;
+  color: #545151;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+}
+
+.top-icon{
+  position: relative;
+  bottom: 10px;
+  left: 10px;
 }

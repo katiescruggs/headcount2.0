@@ -5,6 +5,7 @@ import CardContainer from './CardContainer.js';
 import Search from './Search.js';
 import CompareCardContainer from './CompareCardContainer.js';
 import ControlButtons from './ControlButtons.js';
+import ChildIcon from 'react-icons/lib/fa/child';
 
 const dataFiles = {
   'Full Day Kindergarteners': require('../../data/kindergartners_in_full_day_program.js'),
@@ -86,15 +87,22 @@ class App extends Component {
     return (
       <div className="App">
         <div className="main-hed">
-          <h1>Headcount 2.0</h1>
+          <div className = "logo">
+            <h1> <span className = "top-icon"> <ChildIcon /> </span> Headcount</h1>
+          </div>
+            
+          <div className = "select-data">
+            <p> Select a data set </p>
+            <ControlButtons buttonNames={dataFileNames} changeDataSet={this.changeDataSet} currentDataFile={currentDataFile}/>
+          </div>
         </div>
-        <h2 className="data-subheader">{currentDataFile}</h2>
-        <ControlButtons buttonNames={dataFileNames} changeDataSet={this.changeDataSet} currentDataFile={currentDataFile}/> 
+        <Search filterDistricts={this.filterDistricts}/>
+         <h2 className="data-subheader">{currentDataFile}</h2>
         <CompareCardContainer districtOne={districtOne} 
                               districtTwo={districtTwo} 
                               handleClick={this.handleClick}
                               compareDistrictAverages={districtData.compareDistrictAverages}/>
-        <Search filterDistricts={this.filterDistricts}/>
+        
         
         { this.state.displayArray.length > 0 &&
           <CardContainer districtArray={displayArray}
