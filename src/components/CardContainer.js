@@ -7,7 +7,8 @@ const CardContainer = (
   { districtArray, 
     districtOne, 
     districtTwo, 
-    handleClick}) => (
+    handleClick
+  }) => (
   <div className="card-container">
     <div className="card-holder">
       { districtArray.map((district) => {
