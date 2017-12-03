@@ -15,7 +15,7 @@ describe('DataSetSelect', () => {
     expect(wrapper.find('option').length).toEqual(3);
   });
 
-  it('has options that change based on prop array', () => {
+  it('has options that are dependent on prop array', () => {
     const optionNames = ['one', 'two', 'three', 'four', 'five'];
     const currentDataFile = ['one'];
     const mockChangeData = jest.fn();

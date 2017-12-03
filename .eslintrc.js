@@ -44,7 +44,7 @@ module.exports = {
         ],
         "max-len": [
             "error",
-            80
+            100
         ],
         "new-cap": [
             "error", {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../styles/ComparisonCard.css';
 
 const ComparisonCard = (
@@ -28,3 +29,9 @@ const ComparisonCard = (
 };
 
 export default ComparisonCard; 
+
+ComparisonCard.propTypes = {
+  districtOne: PropTypes.string,
+  districtTwo: PropTypes.string,
+  handleClick: PropTypes.func
+};

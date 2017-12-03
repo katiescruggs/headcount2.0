@@ -5,6 +5,14 @@ import { shallow, mount } from 'enzyme';
 describe('App', () => {
   let wrapper = mount(<App />);
 
+  it('should render Header, an h2, Search, CompareCardContainer, and CardContainer', () => {
+    expect(wrapper.find('Header').length).toEqual(1);
+    expect(wrapper.find('.data-subheader').length).toEqual(1);
+    expect(wrapper.find('Search').length).toEqual(1);
+    expect(wrapper.find('CompareCardContainer').length).toEqual(1);
+    expect(wrapper.find('CardContainer').length).toEqual(1);
+  });
+
   it('should have default state properties', () => {
     expect(typeof wrapper.state().districtData).toEqual('object');
     expect(typeof wrapper.state().displayArray).toEqual('object');
@@ -65,5 +73,17 @@ describe('App', () => {
     expect(wrapper.state().districtOne).toEqual('');
     expect(wrapper.state().districtTwo).toEqual('');
     expect(wrapper.find('.card-clicked').length).toEqual(0);
+  });
+
+  it('should change the data set when the user selects from DataSetSelect', () => {
+    expect(wrapper.find('.card').length).toEqual(181);
+    expect(wrapper.state().currentDataFile).toEqual('Full Day Kindergarteners');
+    expect(wrapper.find('.data-subheader').text()).toEqual('Full Day Kindergarteners');
+    
+    wrapper.find('select').simulate('change', {target: {value: 'Children in Poverty'}});
+    
+    expect(wrapper.find('.card').length).toEqual(180);
+    expect(wrapper.state().currentDataFile).toEqual('Children in Poverty');
+    expect(wrapper.find('.data-subheader').text()).toEqual('Children in Poverty');
   });
 });
