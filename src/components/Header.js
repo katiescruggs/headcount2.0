@@ -13,9 +13,10 @@ const Header = ({dataFileNames, changeDataSet, currentDataFile}) => {
         </h1>
       </div>
 
-      <DataSetSelect optionNames={dataFileNames}
-          changeDataSet={changeDataSet}
-          currentDataFile={currentDataFile}/>
+      <DataSetSelect 
+        optionNames={dataFileNames}
+        changeDataSet={changeDataSet}
+        currentDataFile={currentDataFile}/>
     </div>
   );
 }
