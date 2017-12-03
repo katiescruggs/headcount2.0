@@ -4,7 +4,7 @@ import { shallow, mount } from 'enzyme';
 import ComparisonCard from '../src/components/ComparisonCard.js';
 
 describe('ComparisonCard', () => {
-  it('should have one h2, three spans, and six p tags', () => {
+  it('should have one h2 and six p tags', () => {
     const mockCompareAverages = (districtOne, districtTwo) => {
       return {[districtOne]: 'district one average', 
               [districtTwo]: 'district two average',
@@ -14,7 +14,6 @@ describe('ComparisonCard', () => {
     const wrapper = shallow(<ComparisonCard districtOne='COLORADO' districtTwo='ACADEMY 20' compareDistrictAverages={mockCompareAverages}/>)
     
     expect(wrapper.find('h2').length).toEqual(1);
-    expect(wrapper.find('span').length).toEqual(3);
     expect(wrapper.find('p').length).toEqual(6);
   });
 
@@ -26,8 +25,8 @@ describe('ComparisonCard', () => {
             };
     };
     const wrapper = shallow(<ComparisonCard districtOne='COLORADO' districtTwo='ACADEMY 20' compareDistrictAverages={mockCompareAverages}/>)
-    expect(wrapper.find('.district1-avg').text()).toEqual(' district one average ');
-    expect(wrapper.find('.district2-avg').text()).toEqual(' district two average ');
-    expect(wrapper.find('.comparison').text()).toEqual(' comparison ratio ');
+    expect(wrapper.find('.district1-avg').text()).toEqual('district one average');
+    expect(wrapper.find('.district2-avg').text()).toEqual('district two average');
+    expect(wrapper.find('.comparison').text()).toEqual('comparison ratio');
   });
 });

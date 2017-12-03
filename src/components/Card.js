@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import '../styles/Card.css';
 import Check from 'react-icons/lib/fa/check';
 
-
 const checkIcon = (num) => {
   return num >= 0.5 ? <Check /> : null;
 };
@@ -54,5 +53,8 @@ export default Card;
 
 Card.propTypes = {
   districtName: PropTypes.string,
-  districtData: PropTypes.object
+  districtData: PropTypes.object,
+  handleClick: PropTypes.func,
+  type: PropTypes.string,
+  buttonText: PropTypes.string
 };

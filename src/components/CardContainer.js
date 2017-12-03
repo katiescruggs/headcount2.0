@@ -8,39 +8,43 @@ const CardContainer = (
     districtOne, 
     districtTwo, 
     handleClick
-  }) => (
-  <div className="card-container">
-    <div className="card-holder">
-      { districtArray.map((district) => {
-         
-        let type = '';
-        let buttonText = 'COMPARE';
+  }) => {
+  return (
+    <div className="card-container">
+      <div className="card-holder">
+        { districtArray.map((district) => {
+           
+          let type = '';
+          let buttonText = 'COMPARE';
 
-        if (district.location === districtOne.location 
-          || district.location === districtTwo.location) {
-          type = 'card-clicked';
-          buttonText = 'REMOVE';
+          if (district.location === districtOne.location 
+            || district.location === districtTwo.location) {
+            type = 'card-clicked';
+            buttonText = 'REMOVE';
+          }
+
+          return (
+            <Card 
+              key={district.location}
+              id={district.location}
+              districtName={district.location}  
+              districtData={district.data}
+              handleClick={handleClick}
+              type={type}
+              buttonText={buttonText} />
+          );
+        })
         }
-
-        return (
-          <Card 
-            key={district.location}
-            id={district.location}
-            districtName={district.location}  
-            districtData={district.data}
-            handleClick={handleClick}
-            type={type}
-            buttonText={buttonText} />
-        );
-      })
-      }
+      </div>
     </div>
-  </div>
-
-);
+  );
+}
 
 export default CardContainer;
 
 CardContainer.propTypes = {
-  districtArray: PropTypes.array
+  districtArray: PropTypes.array,
+  districtOne: PropTypes.string,
+  districtTwo: PropTypes.string,
+  handleClick: PropTypes.func
 };

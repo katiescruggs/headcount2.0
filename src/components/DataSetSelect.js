@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../styles/DataSetSelect.css';
 
 const DataSetSelect = ({optionNames, changeDataSet, currentDataFile}) => {
@@ -25,3 +26,9 @@ const DataSetSelect = ({optionNames, changeDataSet, currentDataFile}) => {
 };
 
 export default DataSetSelect;
+
+DataSetSelect.propTypes = {
+  optionNames: PropTypes.array,
+  changeDataSet: PropTypes.func,
+  currentDataFile: PropTypes.string
+}
