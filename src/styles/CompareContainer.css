@@ -12,7 +12,6 @@
   flex-wrap: wrap;
 }
 
-
 @media screen and (max-width: 1000px) {
   .compare-card-container {
     width: 750px;

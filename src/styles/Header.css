@@ -1,21 +1,21 @@
 h1 {
-    -webkit-margin-before: 0px;
-    -webkit-margin-after: 0px;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
 }
 
 .main-hed {
-    background: #0b1d35;
-    color: #ffffff;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding: 20px 40px 20px 20px;
-    align-items: center;
+  align-items: center;
+  background: #0b1d35;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px 20px 20px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
 }
  
 .main-hed h1 {

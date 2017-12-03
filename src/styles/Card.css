@@ -1,19 +1,19 @@
 h2 {
-    display: block;
-    -webkit-margin-before: 0;
-    -webkit-margin-after: 0;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
+  display: block;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
 }
 
 .card-head {
-    display: flex;
-    justify-content: center;
-    background: #26517e;
-    color: white;
-    text-align: center;
-    height: 75px;
-    align-items: center;
+  align-items: center;
+  background: #26517e;
+  color: white;
+  display: flex;
+  height: 75px;
+  justify-content: center;
+  text-align: center;
 }
 .card-head h2 {
   font-size: 20px;
@@ -21,8 +21,8 @@ h2 {
 }
 
 .card {
-  box-shadow: 1.5px 3px 3px 1.5px #566782;
   background: #ffffff;
+  box-shadow: 1.5px 3px 3px 1.5px #566782;
   margin: 10px;
   width: 230px;
 }
@@ -45,33 +45,32 @@ h2 {
 }
 
 .button {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .compare-button {
-  width: 70%;
   background: #26517e;
   color: #ffffff;
-  height: 30px;
   font-size: 16px;
+  height: 30px;
+  width: 70%;
 }
 
 .compare-button:hover{
-  color: #26517e;
   background: #ffffff;
   border: 1px solid #26517e;
+  color: #26517e;
 }
 
 ul.card-data {
   list-style-type: none;
-  padding: 0;
   margin: 0 0 10px 35px;
+  padding: 0;
 }
 
-
 .icon-span {
-  width: 20px;
-  display: inline-block;
   color: #139fdc;
+  display: inline-block;
+  width: 20px;
 }
