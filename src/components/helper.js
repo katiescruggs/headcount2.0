@@ -1,6 +1,10 @@
 export default class DistrictRepository {
   constructor (districtData) {
     this.data = this.data(districtData);
+    this.findByName = this.findByName.bind(this);
+    this.findAllMatches = this.findAllMatches.bind(this);
+    this.findAverage = this.findAverage.bind(this);
+    this.compareDistrictAverages = this.compareDistrictAverages.bind(this);
   }
 
   roundTo1000(number) {
@@ -29,7 +33,7 @@ export default class DistrictRepository {
     return cleanData;
   }
 
-  findByName = (searchValue) => {
+  findByName(searchValue) {
     if (!searchValue) {
       return undefined
     } 
@@ -39,7 +43,7 @@ export default class DistrictRepository {
     }
   }
 
-  findAllMatches = (searchValue) => {
+  findAllMatches(searchValue) {
     if(!searchValue) {
       let allData = Object.keys(this.data).map(key => {
         return {
@@ -60,7 +64,7 @@ export default class DistrictRepository {
     return matches;
   }
 
-  findAverage = (districtName) => {
+  findAverage(districtName) {
     let district = this.findByName(districtName);
    
     let dataYears = Object.keys(district.data);
@@ -75,7 +79,7 @@ export default class DistrictRepository {
     return average;
   }
 
-  compareDistrictAverages = (districtOne, districtTwo) => {
+  compareDistrictAverages(districtOne, districtTwo) {
     let averageOne = this.findAverage(districtOne);
     let averageTwo = this.findAverage(districtTwo);
     let compared = this.roundTo1000(averageOne / averageTwo);

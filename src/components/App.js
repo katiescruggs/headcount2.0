@@ -1,33 +1,62 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 import DistrictRepository from './helper';
-import kinderData from '../../data/kindergartners_in_full_day_program';
+//import kinderData from '../../data/kindergartners_in_full_day_program';
 import CardContainer from './CardContainer.js';
 import Search from './Search.js';
 import CompareCardContainer from './CompareCardContainer.js';
+import ControlButtons from './ControlButtons.js';
+
+const dataFiles = {
+  'Full Day Kindergarteners': require('../../data/kindergartners_in_full_day_program.js'),
+  '3rd Grade Tests': require('../../data/3rd_grade_tests.js'),
+  'High School Grad Rates': require('../../data/high_school_graduation_rates.js'),
+  'Student Enrollment': require('../../data/pupil_enrollment.js'),
+  'Online Student Enrollment': require('../../data/online_pupil_enrollment.js'),
+  'Median Household Income': require('../../data/median_household_income.js'),
+  'Children in Poverty': require('../../data/school_aged_children_in_poverty.js'),
+  'Title I Students': require('../../data/title_i_students.js'),
+  'Remediation in Higher Ed': require('../../data/remediation_in_higher_education.js')
+};
 
 class App extends Component {
   constructor () {
     super();
     this.state = {
-      districtData: new DistrictRepository(kinderData),
+      dataFileNames: Object.keys(dataFiles),
+      currentDataFile: Object.keys(dataFiles)[0],
+      districtData: new DistrictRepository(dataFiles[Object.keys(dataFiles)[0]]),
       displayArray: [],
       compareSwitch: false,
       districtOne: '',
-      districtTwo: '' 
+      districtTwo: '',
     };
+    this.changeDataSet = this.changeDataSet.bind(this);
+    this.filterDistricts = this.filterDistricts.bind(this);
+    this.removeCompare = this.removeCompare.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
     this.setState({ displayArray: this.state.districtData.findAllMatches() });
   }
 
-  filterDistricts = (searchTerm) => {
+  changeDataSet(dataFile) {
+    console.log('changeDataSet to: ' + dataFile)
+    const newDistrict = new DistrictRepository(dataFiles[dataFile]);
+    this.setState(
+      { currentDataFile: dataFile,
+        districtData: newDistrict,
+        displayArray: newDistrict.findAllMatches()
+      }, () => console.log(this.state));
+  }
+
+  filterDistricts(searchTerm) {
     const filteredDistricts = this.state.districtData.findAllMatches(searchTerm);
     this.setState({displayArray: filteredDistricts});
   }
 
-  removeCompare = (districtToRemove, checkIfTwoExists) => {
+  removeCompare(districtToRemove, checkIfTwoExists) {
     if(checkIfTwoExists && this.state.districtTwo !== '') {
       this.setState({compareSwitch: true, districtOne: this.state.districtTwo, districtTwo: ''});
     } else {
@@ -36,7 +65,7 @@ class App extends Component {
     }
   }
 
-  handleClick = (districtName) => {
+  handleClick(districtName) {
     if(districtName === this.state.districtOne.location) {
       this.removeCompare('districtOne', true);
     } else if(districtName === this.state.districtTwo.location) {
@@ -49,12 +78,14 @@ class App extends Component {
   }
  
   render() {
-    const {districtData, displayArray, districtOne, districtTwo} = this.state;
+    const {districtData, displayArray, districtOne, districtTwo, dataFileNames, currentDataFile} = this.state;
     return (
       <div className="App">
-      <div className="main-hed">
-        <h1>Headcount 2.0</h1>
-      </div> 
+        <div className="main-hed">
+          <h1>Headcount 2.0</h1>
+        </div>
+        <h2 className="data-subheader">{currentDataFile}</h2>
+        <ControlButtons buttonNames={dataFileNames} changeDataSet={this.changeDataSet}/> 
         <CompareCardContainer districtOne={districtOne} 
                               districtTwo={districtTwo} 
                               handleClick={this.handleClick}
