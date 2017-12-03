@@ -4,8 +4,7 @@ import DistrictRepository from './helper';
 import CardContainer from './CardContainer.js';
 import Search from './Search.js';
 import CompareCardContainer from './CompareCardContainer.js';
-import ControlButtons from './ControlButtons.js';
-import ChildIcon from 'react-icons/lib/fa/child';
+import Header from './Header.js';
 
 const dataFiles = {
   'Full Day Kindergarteners':
@@ -105,24 +104,17 @@ class App extends Component {
   render() {
     const {districtData, displayArray, districtOne,
       districtTwo, dataFileNames, currentDataFile} = this.state;
-    
+  
     return (
       <div className="App">
-        <div className="main-hed">
-          <div className = "logo">
-            <h1> <span className = "top-icon"> <ChildIcon /> </span>
-              Headcount</h1>
-          </div>
-            
-          <div className = "select-data">
-            <p> Select a data set </p>
-            <ControlButtons buttonNames={dataFileNames}
-              changeDataSet={this.changeDataSet}
-              currentDataFile={currentDataFile}/>
-          </div>
-        </div>
+        <Header dataFileNames={dataFileNames} 
+                changeDataSet={this.changeDataSet} 
+                currentDataFile={currentDataFile} />
+
         <Search filterDistricts={this.filterDistricts}/>
+
         <h2 className="data-subheader">{currentDataFile}</h2>
+
         <CompareCardContainer 
           districtOne={districtOne} 
           districtTwo={districtTwo} 
@@ -130,19 +122,17 @@ class App extends Component {
           compareDistrictAverages=
             {districtData.compareDistrictAverages}/>
         
-        
         { this.state.displayArray.length > 0 &&
           <CardContainer 
             districtArray={displayArray}
             districtOne={districtOne}
             districtTwo={districtTwo}
-            handleClick={this.handleClick} />
-                        
+            handleClick={this.handleClick} />      
         }
         
         { this.state.displayArray.length === 0 &&
           <div className="no-results">
-            <p>No school districts found...</p>
+            <p>No school districts found. Please try another search.</p>
           </div>
         }
       </div>

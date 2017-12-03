@@ -1,0 +1,15 @@
+.select-data {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.select-data-instructions {
+  margin-top: 0;
+}
+
+.select-data select {
+  height: 40px;
+  font-size: 20px;
+}

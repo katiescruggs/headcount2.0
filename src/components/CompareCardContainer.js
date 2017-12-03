@@ -9,23 +9,8 @@ const CompareCardContainer = (
     districtTwo, 
     handleClick, 
     compareDistrictAverages}) => {
-  
-  function displayCard(district) {
-    return (
-      <Card
-        key={[district].location}
-        id={[district].location}
-        districtName={[district].location}
-        districtData={[district].data}
-        handleClick={handleClick}
-        type="card-clicked"
-        buttonText="REMOVE"
-      />
-    );
-  }
 
   if (districtOne !== '' && districtTwo !== '') {
-
     return (
       <div className="compare-card-container">
         <div className="compare-card-holder">

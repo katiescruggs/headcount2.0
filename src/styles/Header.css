@@ -1,0 +1,40 @@
+h1 {
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+.main-hed {
+  align-items: center;
+  background: #0b1d35;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px 20px 20px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+}
+ 
+.main-hed h1 {
+  font-size: 50px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+}
+
+.top-icon{
+  position: relative;
+  bottom: 10px;
+  left: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .main-hed {
+    flex-direction: column;
+  }
+}

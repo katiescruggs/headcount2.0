@@ -52,13 +52,15 @@ module.exports = {
             }
         ],
         "newline-after-var": [
-        "error",
-        "always"
+            "error",
+            "always"
         ],
         "object-shorthand": [
             "error",
             "always"
         ],
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
         "semi": [
             "error",
             "always"

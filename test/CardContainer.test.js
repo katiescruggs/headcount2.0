@@ -17,7 +17,6 @@ describe ('Card Container Tests', () => {
             districtOne = {expectedState.districtOne}
             districtTwo = {expectedState.districtTwo}
             handleClick = {mockFunc} /> );
-    console.log(wrapper.debug())
       expect(wrapper.find('.card').length).toEqual(3);
   });
 
@@ -35,7 +34,6 @@ describe ('Card Container Tests', () => {
             districtOne = {expectedState.districtOne}
             districtTwo = {expectedState.districtTwo}
             handleClick = {mockFunc} /> );
-    console.log(wrapper.debug())
       expect(wrapper.find('.card-clicked').length).toEqual(1);
   });
 
