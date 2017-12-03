@@ -4,7 +4,7 @@ import DistrictRepository from './helper';
 import CardContainer from './CardContainer.js';
 import Search from './Search.js';
 import CompareCardContainer from './CompareCardContainer.js';
-import ControlButtons from './ControlButtons.js';
+import DataSetSelect from './DataSetSelect.js';
 import ChildIcon from 'react-icons/lib/fa/child';
 
 const dataFiles = {
@@ -116,7 +116,7 @@ class App extends Component {
             
           <div className="select-data">
             <p className="select-data-instructions"> Select a data set </p>
-            <ControlButtons buttonNames={dataFileNames}
+            <DataSetSelect optionNames={dataFileNames}
               changeDataSet={this.changeDataSet}
               currentDataFile={currentDataFile}/>
           </div>
