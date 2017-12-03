@@ -1,0 +1,47 @@
+exports[`Card Tests should match the snapshot 1`] = `
+<div
+  className="card  Academy 20">
+  <div
+    className="card-head">
+    <h2>
+      Academy 20
+    </h2>
+  </div>
+  <div
+    className="card-body">
+    <ul
+      className="card-data">
+      <li
+        key="0">
+        <span
+          className="icon-span">
+          <FaCheck />
+        </span>
+        <strong>
+          2014
+        </strong>
+        : 
+        1
+      </li>
+      <li
+        key="1">
+        <span
+          className="icon-span" />
+        <strong>
+          2015
+        </strong>
+        : 
+        0.3
+      </li>
+    </ul>
+    <div
+      className="button">
+      <button
+        className="compare-button"
+        onClick={[Function]}>
+        Compare
+      </button>
+    </div>
+  </div>
+</div>
+`;
