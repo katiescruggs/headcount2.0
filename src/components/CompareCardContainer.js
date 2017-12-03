@@ -4,6 +4,17 @@ import ComparisonCard from './ComparisonCard.js';
 import PropTypes from 'prop-types';
 import '../styles/CompareContainer.css';
 
+function displayCard(district, handleClick) {
+  return (
+    <Card key={[district].location}
+      id={[district].location}
+      districtName={[district].location}
+      districtData={[district].data}
+      handleClick={handleClick}
+      type="card-clicked"
+      buttonText="REMOVE" />
+  );
+}
 
 const CompareCardContainer = (
   { districtOne, 
@@ -42,14 +53,11 @@ const CompareCardContainer = (
     return (
       <div className="compare-card-container">
         <div className="compare-card-holder">
-          <Card key={districtOne.location} 
-            id={districtOne.location}
-            districtName={districtOne.location}
-            districtData={districtOne.data}
-            handleClick={handleClick}
-            type='card-clicked'
-            buttonText='REMOVE' />
+          
+          { displayCard(districtOne, handleClick) }
+
         </div>
+        }
       </div>
     );
   } else if (districtTwo !== '') {
