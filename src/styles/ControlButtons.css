@@ -21,3 +21,8 @@
   background-color: #26517e;
   color: white;
 }
+
+.control-button-container select {
+    height: 40px;
+    font-size: 20px;
+}

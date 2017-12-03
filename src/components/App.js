@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 import DistrictRepository from './helper';
-//import kinderData from '../../data/kindergartners_in_full_day_program';
 import CardContainer from './CardContainer.js';
 import Search from './Search.js';
 import CompareCardContainer from './CompareCardContainer.js';
 import ControlButtons from './ControlButtons.js';
+import ChildIcon from 'react-icons/lib/fa/child';
 
 const dataFiles = {
-  'Full Day Kindergarteners': require('../../data/kindergartners_in_full_day_program.js'),
-  'High School Grad Rates': require('../../data/high_school_graduation_rates.js'),
-  'Student Enrollment': require('../../data/pupil_enrollment.js'),
-  'Online Student Enrollment': require('../../data/online_pupil_enrollment.js'),
-  'Median Household Income': require('../../data/median_household_income.js'),
-  'Children in Poverty': require('../../data/school_aged_children_in_poverty.js'),
-  'Title I Students': require('../../data/title_i_students.js'),
-  'Remediation in Higher Ed': require('../../data/remediation_in_higher_education.js')
+  'Full Day Kindergarteners':
+  require('../../data/kindergartners_in_full_day_program.js'),
+  'High School Grad Rates': 
+  require('../../data/high_school_graduation_rates.js'),
+  'Student Enrollment': 
+  require('../../data/pupil_enrollment.js'),
+  'Online Student Enrollment': 
+  require('../../data/online_pupil_enrollment.js'),
+  'Median Household Income': 
+  require('../../data/median_household_income.js'),
+  'Children in Poverty': 
+  require('../../data/school_aged_children_in_poverty.js'),
+  'Title I Students': 
+  require('../../data/title_i_students.js'),
+  'Remediation in Higher Ed': 
+  require('../../data/remediation_in_higher_education.js')
 };
 
 class App extends Component {
@@ -24,7 +32,8 @@ class App extends Component {
     this.state = {
       dataFileNames: Object.keys(dataFiles),
       currentDataFile: Object.keys(dataFiles)[0],
-      districtData: new DistrictRepository(dataFiles[Object.keys(dataFiles)[0]]),
+      districtData: 
+      new DistrictRepository(dataFiles[Object.keys(dataFiles)[0]]),
       displayArray: [],
       compareSwitch: false,
       districtOne: '',
@@ -43,64 +52,91 @@ class App extends Component {
   changeDataSet(dataFile) {
     const newDistrict = new DistrictRepository(dataFiles[dataFile]);
 
-    const districtOne = (newDistrict.findByName(this.state.districtOne.location)) || '';
-    const districtTwo = (newDistrict.findByName(this.state.districtTwo.location)) || '';
+    const districtOne = 
+      (newDistrict.findByName(this.state.districtOne.location)) || '';
+    const districtTwo = 
+      (newDistrict.findByName(this.state.districtTwo.location)) || '';
 
     this.setState(
       { currentDataFile: dataFile,
         districtData: newDistrict,
         displayArray: newDistrict.findAllMatches(),
-        districtOne: districtOne,
-        districtTwo: districtTwo
+        districtOne,
+        districtTwo
       });
   }
 
   filterDistricts(searchTerm) {
-    const filteredDistricts = this.state.districtData.findAllMatches(searchTerm);
+    const filteredDistricts =
+      this.state.districtData.findAllMatches(searchTerm);
+    
     this.setState({displayArray: filteredDistricts});
   }
 
+
   removeCompare(districtToRemove, checkIfTwoExists) {
-    if(checkIfTwoExists && this.state.districtTwo !== '') {
-      this.setState({compareSwitch: true, districtOne: this.state.districtTwo, districtTwo: ''});
+    if (checkIfTwoExists && this.state.districtTwo !== '') {
+      this.setState({compareSwitch: true,
+        districtOne: this.state.districtTwo, districtTwo: ''});
     } else {
       const compareBoolean = districtToRemove === 'districtTwo';
+      
       this.setState({compareSwitch: compareBoolean, [districtToRemove]: ''});
     }
   }
 
   handleClick(districtName) {
-    if(districtName === this.state.districtOne.location) {
+    if (districtName === this.state.districtOne.location) {
       this.removeCompare('districtOne', true);
-    } else if(districtName === this.state.districtTwo.location) {
+    } else if (districtName === this.state.districtTwo.location) {
       this.removeCompare('districtTwo');
     } else {
-      const newComparisonCard = this.state.districtData.findByName(districtName);
-      const compareDistrict = this.state.compareSwitch ? 'districtTwo' : 'districtOne';
-      this.setState({compareSwitch: !this.state.compareSwitch, [compareDistrict]: newComparisonCard}) 
+      const newComparisonCard = 
+        this.state.districtData.findByName(districtName);
+      
+      const compareDistrict = 
+        this.state.compareSwitch ? 'districtTwo' : 'districtOne';
+      
+      this.setState({compareSwitch: !this.state.compareSwitch, 
+        [compareDistrict]: newComparisonCard});
     }
   }
  
   render() {
-    const {districtData, displayArray, districtOne, districtTwo, dataFileNames, currentDataFile} = this.state;
+    const {districtData, displayArray, districtOne,
+      districtTwo, dataFileNames, currentDataFile} = this.state;
+    
     return (
       <div className="App">
         <div className="main-hed">
-          <h1>Headcount 2.0</h1>
+          <div className = "logo">
+            <h1> <span className = "top-icon"> <ChildIcon /> </span>
+              Headcount</h1>
+          </div>
+            
+          <div className = "select-data">
+            <p> Select a data set </p>
+            <ControlButtons buttonNames={dataFileNames}
+              changeDataSet={this.changeDataSet}
+              currentDataFile={currentDataFile}/>
+          </div>
         </div>
-        <h2 className="data-subheader">{currentDataFile}</h2>
-        <ControlButtons buttonNames={dataFileNames} changeDataSet={this.changeDataSet} currentDataFile={currentDataFile}/> 
-        <CompareCardContainer districtOne={districtOne} 
-                              districtTwo={districtTwo} 
-                              handleClick={this.handleClick}
-                              compareDistrictAverages={districtData.compareDistrictAverages}/>
         <Search filterDistricts={this.filterDistricts}/>
+        <h2 className="data-subheader">{currentDataFile}</h2>
+        <CompareCardContainer 
+          districtOne={districtOne} 
+          districtTwo={districtTwo} 
+          handleClick={this.handleClick}
+          compareDistrictAverages=
+            {districtData.compareDistrictAverages}/>
+        
         
         { this.state.displayArray.length > 0 &&
-          <CardContainer districtArray={displayArray}
-                         districtOne={districtOne}
-                         districtTwo={districtTwo}
-                         handleClick={this.handleClick} />
+          <CardContainer 
+            districtArray={displayArray}
+            districtOne={districtOne}
+            districtTwo={districtTwo}
+            handleClick={this.handleClick} />
                         
         }
         
