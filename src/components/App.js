@@ -42,13 +42,18 @@ class App extends Component {
   }
 
   changeDataSet(dataFile) {
-    console.log('changeDataSet to: ' + dataFile)
     const newDistrict = new DistrictRepository(dataFiles[dataFile]);
+
+    const districtOne = (newDistrict.findByName(this.state.districtOne.location)) || '';
+    const districtTwo = (newDistrict.findByName(this.state.districtTwo.location)) || '';
+
     this.setState(
       { currentDataFile: dataFile,
         districtData: newDistrict,
-        displayArray: newDistrict.findAllMatches()
-      }, () => console.log(this.state));
+        displayArray: newDistrict.findAllMatches(),
+        districtOne: districtOne,
+        districtTwo: districtTwo
+      });
   }
 
   filterDistricts(searchTerm) {

@@ -8,20 +8,18 @@
 }
 
 .comparison-card-head {
-  align-content: center;
+  align-items: center;
   display: flex;
   justify-content: center;
   background: #26517e;
   color: white;
   font-size: 15px;
-  text-align: center;
   height: 75px;
 }
 
 
 .comparison-card-head h2 {
   font-size: 20px;
-  margin-top: 10px;
 }
 
 .big-number {
