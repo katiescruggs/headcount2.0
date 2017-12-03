@@ -11,7 +11,7 @@ const ComparisonCard = (
   return (
     <div className="comparison-card">
       <div className="comparison-card-head">
-        <h2> Averages </h2> 
+        <h2>AVERAGES</h2> 
       </div> 
       <p><strong>{districtOne} AVERAGE:</strong></p>
       <p><span className="big-number district1-avg"> {comparison[districtOne]} </span></p>
