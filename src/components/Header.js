@@ -14,10 +14,10 @@ const Header = ({dataFileNames, changeDataSet, currentDataFile}) => {
       </div>
 
       <DataSetSelect optionNames={dataFileNames}
-          changeDataSet={changeDataSet}
-          currentDataFile={currentDataFile}/>
+        changeDataSet={changeDataSet}
+        currentDataFile={currentDataFile}/>
     </div>
   );
-}
+};
 
 export default Header;

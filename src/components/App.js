@@ -108,8 +108,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header dataFileNames={dataFileNames} 
-                changeDataSet={this.changeDataSet} 
-                currentDataFile={currentDataFile} />
+          changeDataSet={this.changeDataSet} 
+          currentDataFile={currentDataFile} />
 
         <Search filterDistricts={this.filterDistricts}/>
 
