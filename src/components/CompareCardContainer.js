@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './Card.js';
 import ComparisonCard from './ComparisonCard.js';
+import PropTypes from 'prop-types';
 import '../styles/CompareContainer.css';
 
 
@@ -71,3 +72,10 @@ const CompareCardContainer = (
 };
 
 export default CompareCardContainer;
+
+CompareCardContainer.propTypes = {
+  districtOne: PropTypes.string,
+  districtTwo: PropTypes.string,
+  handleClick: PropTypes.func,
+  compareDistrictAverages: PropTypes.func
+};

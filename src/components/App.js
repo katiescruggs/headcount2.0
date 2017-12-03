@@ -7,22 +7,14 @@ import CompareCardContainer from './CompareCardContainer.js';
 import Header from './Header.js';
 
 const dataFiles = {
-  'Full Day Kindergarteners':
-  require('../../data/kindergartners_in_full_day_program.js'),
-  'High School Grad Rates': 
-  require('../../data/high_school_graduation_rates.js'),
-  'Student Enrollment': 
-  require('../../data/pupil_enrollment.js'),
-  'Online Student Enrollment': 
-  require('../../data/online_pupil_enrollment.js'),
-  'Median Household Income': 
-  require('../../data/median_household_income.js'),
-  'Children in Poverty': 
-  require('../../data/school_aged_children_in_poverty.js'),
-  'Title I Students': 
-  require('../../data/title_i_students.js'),
-  'Remediation in Higher Ed': 
-  require('../../data/remediation_in_higher_education.js')
+  'Full Day Kindergarteners': require('../../data/kindergartners_in_full_day_program.js'),
+  'High School Grad Rates': require('../../data/high_school_graduation_rates.js'),
+  'Student Enrollment': require('../../data/pupil_enrollment.js'),
+  'Online Student Enrollment': require('../../data/online_pupil_enrollment.js'),
+  'Median Household Income': require('../../data/median_household_income.js'),
+  'Children in Poverty': require('../../data/school_aged_children_in_poverty.js'),
+  'Title I Students': require('../../data/title_i_students.js'),
+  'Remediation in Higher Ed': require('../../data/remediation_in_higher_education.js')
 };
 
 class App extends Component {
@@ -51,10 +43,8 @@ class App extends Component {
   changeDataSet(dataFile) {
     const newDistrict = new DistrictRepository(dataFiles[dataFile]);
 
-    const districtOne = 
-      (newDistrict.findByName(this.state.districtOne.location)) || '';
-    const districtTwo = 
-      (newDistrict.findByName(this.state.districtTwo.location)) || '';
+    const districtOne = newDistrict.findByName(this.state.districtOne.location) || '';
+    const districtTwo = newDistrict.findByName(this.state.districtTwo.location) || '';
 
     this.setState(
       { currentDataFile: dataFile,
@@ -66,17 +56,14 @@ class App extends Component {
   }
 
   filterDistricts(searchTerm) {
-    const filteredDistricts =
-      this.state.districtData.findAllMatches(searchTerm);
+    const filteredDistricts = this.state.districtData.findAllMatches(searchTerm);
     
     this.setState({displayArray: filteredDistricts});
   }
 
-
   removeCompare(districtToRemove, checkIfTwoExists) {
     if (checkIfTwoExists && this.state.districtTwo !== '') {
-      this.setState({compareSwitch: true,
-        districtOne: this.state.districtTwo, districtTwo: ''});
+      this.setState({compareSwitch: true, districtOne: this.state.districtTwo, districtTwo: ''});
     } else {
       const compareBoolean = districtToRemove === 'districtTwo';
       
@@ -93,8 +80,7 @@ class App extends Component {
       const newComparisonCard = 
         this.state.districtData.findByName(districtName);
       
-      const compareDistrict = 
-        this.state.compareSwitch ? 'districtTwo' : 'districtOne';
+      const compareDistrict = this.state.compareSwitch ? 'districtTwo' : 'districtOne';
       
       this.setState({compareSwitch: !this.state.compareSwitch, 
         [compareDistrict]: newComparisonCard});
@@ -119,8 +105,7 @@ class App extends Component {
           districtOne={districtOne} 
           districtTwo={districtTwo} 
           handleClick={this.handleClick}
-          compareDistrictAverages=
-            {districtData.compareDistrictAverages}/>
+          compareDistrictAverages={districtData.compareDistrictAverages}/>
         
         { this.state.displayArray.length > 0 &&
           <CardContainer 
