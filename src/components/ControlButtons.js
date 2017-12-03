@@ -10,25 +10,25 @@ const DatasetSelect = ( {dataSet} ) => {
 };
 
 const ControlButtons = ({buttonNames, changeDataSet, currentDataFile}) => {
-   const selectOptions = buttonNames.map( (fileName) => {
-      return (
-        <DatasetSelect
-          key={fileName}
-          dataSet={fileName} />
-      );
-    });
+  const selectOptions = buttonNames.map( (fileName) => {
+    return (
+      <DatasetSelect
+        key={fileName}
+        dataSet={fileName} />
+    );
+  });
   
   return (
     <div className="control-button-container">
-       <select
-          value={currentDataFile}
-          onChange={(e) => changeDataSet(e.target.value)}>
+      <select
+        value={currentDataFile}
+        onChange={(e) => changeDataSet(e.target.value)}>
 
-          <option value=''>Select a Dataset</option>
-          {selectOptions}
-        </select>
+        <option value=''>Select a Dataset</option>
+        {selectOptions}
+      </select>
     </div>
-  )
-}
+  );
+};
 
 export default ControlButtons;

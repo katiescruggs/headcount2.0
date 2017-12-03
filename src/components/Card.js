@@ -41,9 +41,9 @@ const Card = ({districtName, districtData, handleClick, type, buttonText}) => {
           </ul>
           <div className="button">
             <button 
-            className="compare-button" 
-            onClick={ () => buttonClick(handleClick, districtName)}>
-            {buttonText}
+              className="compare-button" 
+              onClick={ () => buttonClick(handleClick, districtName)}>
+              {buttonText}
             </button>
           </div>
         </div>

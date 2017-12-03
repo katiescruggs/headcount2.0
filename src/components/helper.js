@@ -8,7 +8,7 @@ export default class DistrictRepository {
   }
 
   roundTo1000(number) {
-    return Math.round(number * 1000)/1000;
+    return Math.round( number * 1000 ) / 1000;
   }
 
   data(dirtyData) {
@@ -17,14 +17,15 @@ export default class DistrictRepository {
     cleanData = dirtyData.reduce((dataObject, item) => {
       let currentDistrict = item.Location.toUpperCase();
 
-      if(!dataObject[currentDistrict]) {
+      if (!dataObject[currentDistrict]) {
         dataObject[currentDistrict] = {};
       }
 
-      let data = item.DataFormat === 'Percent' ? this.roundTo1000(item.Data) : item.Data;
+      let data = item.DataFormat === 'Percent' ?
+        this.roundTo1000(item.Data) : item.Data;
 
       dataObject[currentDistrict][item.TimeFrame] = data;
-       if (isNaN(dataObject[currentDistrict][item.TimeFrame])) {
+      if (isNaN(dataObject[currentDistrict][item.TimeFrame])) {
         dataObject[currentDistrict][item.TimeFrame] = 0;
       }
       return dataObject;
@@ -35,31 +36,37 @@ export default class DistrictRepository {
 
   findByName(searchValue) {
     if (!searchValue) {
-      return undefined
+      return undefined;
     } 
     searchValue = searchValue.toUpperCase();
     if (this.data[searchValue]) {
-      return {location: searchValue, data: this.data[searchValue]}
+      return {location: searchValue, data: this.data[searchValue]};
     }
   }
 
   findAllMatches(searchValue) {
-    if(!searchValue) {
+    if (!searchValue) {
+      
       let allData = Object.keys(this.data).map(key => {
+
         return {
           location: key,
           data: this.data[key]
-        }
+        };
       });
       return allData;
     }
     searchValue = searchValue.toUpperCase();
-    let matchKeys = Object.keys(this.data).filter(key => key.includes(searchValue));
+    
+    let matchKeys = 
+      Object.keys(this.data).filter(key => key.includes(searchValue));
+    
     let matches = matchKeys.map(matchKey => {
+
       return {
         location: matchKey, 
         data: this.data[matchKey]
-      }
+      };
     });
     return matches;
   }
@@ -84,8 +91,9 @@ export default class DistrictRepository {
     let averageTwo = this.findAverage(districtTwo);
     let compared = this.roundTo1000(averageOne / averageTwo);
 
-    return { [districtOne.toUpperCase()]: averageOne, 
-             [districtTwo.toUpperCase()]: averageTwo,
-             compared };
+    return { 
+      [districtOne.toUpperCase()]: averageOne, 
+      [districtTwo.toUpperCase()]: averageTwo,
+      compared };
   }
 }
