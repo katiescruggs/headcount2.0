@@ -1,26 +1,32 @@
 import React from 'react';
 import '../styles/ControlButtons.css';
 
+const DatasetSelect = ( {dataSet} ) => {
+  return (
+    <option value={dataSet}>
+      {dataSet}
+    </option>
+  );
+};
+
 const ControlButtons = ({buttonNames, changeDataSet, currentDataFile}) => {
-  const buttons = buttonNames.map( (buttonName, index) => {
-    let className = 'control-button';
-
-    if (buttonName === currentDataFile) {
-      className += ' active';
-    }
-
-    return (
-      <button key={`control-button-${index}`} 
-              className={className}
-              onClick={() => {changeDataSet(buttonName)}}>
-        {buttonName}
-      </button>
-    )
-  });
+   const selectOptions = buttonNames.map( (fileName) => {
+      return (
+        <DatasetSelect
+          key={fileName}
+          dataSet={fileName} />
+      );
+    });
   
   return (
     <div className="control-button-container">
-      {buttons}
+       <select
+          value={currentDataFile}
+          onChange={(e) => changeDataSet(e.target.value)}>
+
+          <option value=''>Select a Dataset</option>
+          {selectOptions}
+        </select>
     </div>
   )
 }
