@@ -1,11 +1,17 @@
 import React from 'react';
+import '../styles/ControlButtons.css';
 
-
-const ControlButtons = ({buttonNames, changeDataSet}) => {
+const ControlButtons = ({buttonNames, changeDataSet, currentDataFile}) => {
   const buttons = buttonNames.map( (buttonName, index) => {
+    let className = 'control-button';
+
+    if (buttonName === currentDataFile) {
+      className += ' active';
+    }
+
     return (
       <button key={`control-button-${index}`} 
-              className="control-button" 
+              className={className}
               onClick={() => {changeDataSet(buttonName)}}>
         {buttonName}
       </button>

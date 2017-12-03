@@ -1,0 +1,23 @@
+.control-button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.control-button {
+  background-color: #139fdc;
+  color: black;
+  font-size: 16px;
+  padding: 10px;
+  margin:5px 0;
+}
+
+.control-button:hover {
+  background-color: #cb252d;
+  color: white;
+}
+
+.control-button.active {
+  background-color: #26517e;
+  color: white;
+}

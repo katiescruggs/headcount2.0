@@ -9,7 +9,6 @@ import ControlButtons from './ControlButtons.js';
 
 const dataFiles = {
   'Full Day Kindergarteners': require('../../data/kindergartners_in_full_day_program.js'),
-  '3rd Grade Tests': require('../../data/3rd_grade_tests.js'),
   'High School Grad Rates': require('../../data/high_school_graduation_rates.js'),
   'Student Enrollment': require('../../data/pupil_enrollment.js'),
   'Online Student Enrollment': require('../../data/online_pupil_enrollment.js'),
@@ -90,7 +89,7 @@ class App extends Component {
           <h1>Headcount 2.0</h1>
         </div>
         <h2 className="data-subheader">{currentDataFile}</h2>
-        <ControlButtons buttonNames={dataFileNames} changeDataSet={this.changeDataSet}/> 
+        <ControlButtons buttonNames={dataFileNames} changeDataSet={this.changeDataSet} currentDataFile={currentDataFile}/> 
         <CompareCardContainer districtOne={districtOne} 
                               districtTwo={districtTwo} 
                               handleClick={this.handleClick}
