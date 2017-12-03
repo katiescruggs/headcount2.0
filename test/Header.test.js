@@ -2,6 +2,7 @@ import React from 'react';
 import DataSetSelect from '../src/components/DataSetSelect.js';
 import Header from '../src/components/Header.js'
 import { shallow, mount } from 'enzyme';
+import toJson from 'enzyme-to-json'
 
 describe ('Header', () => {
   let header;
@@ -19,6 +20,10 @@ describe ('Header', () => {
 
   });
 
+  it('should match the snapshot', () =>{
+    expect(toJson(header)).toMatchSnapshot()
+  });
+
   it ('has one select element', () => {
     expect(header.find('select').length).toEqual(1);
   });
@@ -27,8 +32,6 @@ describe ('Header', () => {
     header.find('select').simulate('change', {target: {value: 'High School Grad Rates'}})
     expect(mockFunc.mock.calls.length).toEqual(1);
   })
-
-
 
 
 })
