@@ -35,17 +35,17 @@ const Card = ({districtName, districtData, handleClick, type, buttonText}) => {
         <div className="card-head">
           <h2>{districtName}</h2>
         </div>
-        <div className="data-list">
+        <div className="card-body">
           <ul className="card-data">
             {displayData(districtData)}
           </ul>
-        </div>
-        <div className="button">
-          <button 
+          <div className="button">
+            <button 
             className="compare-button" 
             onClick={ () => buttonClick(handleClick, districtName)}>
             {buttonText}
-          </button>
+            </button>
+          </div>
         </div>
       </div>
     );

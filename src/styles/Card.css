@@ -13,20 +13,23 @@ h2 {
     color: white;
     font-size: 15px;
     text-align: center;
-    height: 60px;
+    height: 75px;
     align-items: center;
 }
 .card-head h2 {
   font-size: 20px;
+  margin: 0 20px;
 }
 
 .card {
-    box-shadow: 1.5px 3px 3px 1.5px #566782;
-    background: #ffffff;
-    margin: 10px;
-    width: 230px;
-    height: 330px;
- 
+  box-shadow: 1.5px 3px 3px 1.5px #566782;
+  background: #ffffff;
+  margin: 10px;
+  width: 230px;
+}
+
+.card-body {
+  padding: 20px;
 }
 
 .card-clicked .card-head {
@@ -61,7 +64,9 @@ h2 {
 }
 
 ul.card-data {
-    list-style-type: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 10px 35px;
 }
 
 
