@@ -29,6 +29,7 @@ describe ('Header', () => {
   });
 
   it('runs changeDataSet on change', () =>{
+    expect(mockFunc.mock.calls.length).toEqual(0);
     header.find('select').simulate('change', {target: {value: 'High School Grad Rates'}})
     expect(mockFunc.mock.calls.length).toEqual(1);
   })
