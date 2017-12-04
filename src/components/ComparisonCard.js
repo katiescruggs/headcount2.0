@@ -31,7 +31,7 @@ const ComparisonCard = (
 export default ComparisonCard; 
 
 ComparisonCard.propTypes = {
-  districtOne: PropTypes.string,
-  districtTwo: PropTypes.string,
+  districtOne: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  districtTwo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   handleClick: PropTypes.func
 };

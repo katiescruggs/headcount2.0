@@ -4,6 +4,17 @@ import ComparisonCard from './ComparisonCard.js';
 import PropTypes from 'prop-types';
 import '../styles/CompareContainer.css';
 
+function displayCard(district, handleClick) {
+  return (
+    <Card key={district.location}
+      id={district.location}
+      districtName={district.location}
+      districtData={district.data}
+      handleClick={handleClick}
+      type="card-clicked"
+      buttonText="REMOVE" />
+  );
+}
 
 const CompareCardContainer = (
   { districtOne, 
@@ -11,71 +22,32 @@ const CompareCardContainer = (
     handleClick, 
     compareDistrictAverages}) => {
 
-  if (districtOne !== '' && districtTwo !== '') {
-    return (
-      <div className="compare-card-container">
-        <div className="compare-card-holder">
-          <Card key={districtOne.location} 
-            id={districtOne.location}
-            districtName={districtOne.location}
-            districtData={districtOne.data}
-            handleClick={handleClick}
-            type='card-clicked'
-            buttonText='REMOVE' />
+  const districtOneCard = districtOne !== '' ? displayCard(districtOne, handleClick) : null;
+  const districtTwoCard = districtTwo !== '' ? displayCard(districtTwo, handleClick) : null;
 
-          <ComparisonCard 
-            districtOne={districtOne.location}
-            districtTwo={districtTwo.location}
-            compareDistrictAverages={compareDistrictAverages} />
+  const comparisonCard = (districtOne !== '' && districtTwo !== '') ?
+    <ComparisonCard 
+      districtOne={districtOne.location}
+      districtTwo={districtTwo.location}
+      compareDistrictAverages={compareDistrictAverages} />
+    : null;
 
-          <Card key={districtTwo.location} 
-            id={districtTwo.location}
-            districtName={districtTwo.location}
-            districtData={districtTwo.data}
-            handleClick={handleClick}
-            type='card-clicked'
-            buttonText='REMOVE' />
-        </div>
+  return (
+    <div className="compare-card-container">
+      <div className="compare-card-holder">
+        {districtOneCard}
+        {comparisonCard}
+        {districtTwoCard}
       </div>
-    );
-  } else if (districtOne !== '') {
-    return (
-      <div className="compare-card-container">
-        <div className="compare-card-holder">
-          <Card key={districtOne.location} 
-            id={districtOne.location}
-            districtName={districtOne.location}
-            districtData={districtOne.data}
-            handleClick={handleClick}
-            type='card-clicked'
-            buttonText='REMOVE' />
-        </div>
-      </div>
-    );
-  } else if (districtTwo !== '') {
-    return (
-      <div className="compare-card-container">
-        <div className="compare-card-holder">
-          <Card key={districtTwo.location} 
-            id={districtTwo.location}
-            districtName={districtTwo.location}
-            districtData={districtTwo.data}
-            handleClick={handleClick}
-            type='card-clicked'
-            buttonText='REMOVE' />
-        </div>
-      </div>
-    );
-  } else {
-    return null;
-  }  
+    </div>
+  );
 };
 
 export default CompareCardContainer;
 
 CompareCardContainer.propTypes = {
-  districtOne: PropTypes.string,
-  districtTwo: PropTypes.string,
+  districtOne: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  districtTwo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   handleClick: PropTypes.func,
   compareDistrictAverages: PropTypes.func
 };

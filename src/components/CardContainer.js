@@ -38,13 +38,13 @@ const CardContainer = (
       </div>
     </div>
   );
-}
+};
 
 export default CardContainer;
 
 CardContainer.propTypes = {
   districtArray: PropTypes.array,
-  districtOne: PropTypes.string,
-  districtTwo: PropTypes.string,
+  districtOne: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  districtTwo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   handleClick: PropTypes.func
 };
