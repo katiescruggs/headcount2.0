@@ -1,0 +1,40 @@
+exports[`ComparisonCard should match the snapshot 1`] = `
+<div
+  className="comparison-card">
+  <div
+    className="comparison-card-head">
+    <h2>
+      AVERAGES
+    </h2>
+  </div>
+  <p>
+    <strong>
+      COLORADO
+       AVERAGE:
+    </strong>
+  </p>
+  <p
+    className="big-number district1-avg">
+    district one average
+  </p>
+  <p>
+    <strong>
+      ACADEMY 20
+       AVERAGE:
+    </strong>
+  </p>
+  <p
+    className="big-number district2-avg">
+    district two average
+  </p>
+  <p>
+    <strong>
+      COMPARISON RATIO:
+    </strong>
+  </p>
+  <p
+    className="big-number comparison">
+    comparison ratio
+  </p>
+</div>
+`;

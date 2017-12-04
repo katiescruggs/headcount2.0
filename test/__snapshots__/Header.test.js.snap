@@ -1,0 +1,82 @@
+exports[`Header should match the snapshot 1`] = `
+<Header
+  CurrentDataFile="Student Enrollment"
+  changeDataSet={[Function]}
+  dataFileNames={
+    Array [
+      "Full Day Kindergartners",
+      "High School Grad Rates",
+      "Student Enrollment",
+    ]
+  }>
+  <div
+    className="main-hed">
+    <div
+      className="logo">
+      <h1>
+        <span
+          className="top-icon">
+          <FaChild>
+            <IconBase
+              viewBox="0 0 40 40">
+              <svg
+                fill="currentColor"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                style={
+                  Object {
+                    "color": undefined,
+                    "verticalAlign": "middle",
+                  }
+                }
+                viewBox="0 0 40 40"
+                width="1em">
+                <g>
+                  <path
+                    d="m32 12.2l-6.5 6.6v18.3q0 1.1-0.7 1.8t-1.8 0.7-1.8-0.7-0.7-1.8v-8.5h-1.4v8.5q0 1.1-0.8 1.8t-1.7 0.7-1.8-0.7-0.7-1.8v-18.3l-6.5-6.6q-0.7-0.6-0.7-1.5t0.7-1.5 1.5-0.6 1.5 0.6l5.1 5.1h8.2l5.1-5.1q0.6-0.6 1.5-0.6t1.5 0.6 0.6 1.5-0.6 1.5z m-7.2-3.6q0 2-1.5 3.5t-3.5 1.5-3.6-1.5-1.4-3.5 1.4-3.6 3.6-1.4 3.5 1.4 1.5 3.6z" />
+                </g>
+              </svg>
+            </IconBase>
+          </FaChild>
+        </span>
+        Headcount
+      </h1>
+    </div>
+    <DataSetSelect
+      changeDataSet={[Function]}
+      optionNames={
+        Array [
+          "Full Day Kindergartners",
+          "High School Grad Rates",
+          "Student Enrollment",
+        ]
+      }>
+      <div
+        className="select-data">
+        <p
+          className="select-data-instructions">
+          Select a data set
+        </p>
+        <select
+          onChange={[Function]}>
+          <option
+            key="Full Day Kindergartners"
+            value="Full Day Kindergartners">
+            Full Day Kindergartners
+          </option>
+          <option
+            key="High School Grad Rates"
+            value="High School Grad Rates">
+            High School Grad Rates
+          </option>
+          <option
+            key="Student Enrollment"
+            value="Student Enrollment">
+            Student Enrollment
+          </option>
+        </select>
+      </div>
+    </DataSetSelect>
+  </div>
+</Header>
+`;
