@@ -6,10 +6,10 @@ import '../styles/CompareContainer.css';
 
 function displayCard(district, handleClick) {
   return (
-    <Card key={[district].location}
-      id={[district].location}
-      districtName={[district].location}
-      districtData={[district].data}
+    <Card key={district.location}
+      id={district.location}
+      districtName={district.location}
+      districtData={district.data}
       handleClick={handleClick}
       type="card-clicked"
       buttonText="REMOVE" />
@@ -22,61 +22,24 @@ const CompareCardContainer = (
     handleClick, 
     compareDistrictAverages}) => {
 
-  if (districtOne !== '' && districtTwo !== '') {
-    return (
-      <div className="compare-card-container">
-        <div className="compare-card-holder">
-          <Card key={districtOne.location} 
-            id={districtOne.location}
-            districtName={districtOne.location}
-            districtData={districtOne.data}
-            handleClick={handleClick}
-            type='card-clicked'
-            buttonText='REMOVE' />
+  const districtOneCard = districtOne !== '' ? displayCard(districtOne, handleClick) : null;
+  const districtTwoCard = districtTwo !== '' ? displayCard(districtTwo, handleClick) : null;
+  const comparisonCard = (districtOne !== '' && districtTwo !== '') ?
+    <ComparisonCard 
+      districtOne={districtOne.location}
+      districtTwo={districtTwo.location}
+      compareDistrictAverages={compareDistrictAverages} />
+    : null;
 
-          <ComparisonCard 
-            districtOne={districtOne.location}
-            districtTwo={districtTwo.location}
-            compareDistrictAverages={compareDistrictAverages} />
-
-          <Card key={districtTwo.location} 
-            id={districtTwo.location}
-            districtName={districtTwo.location}
-            districtData={districtTwo.data}
-            handleClick={handleClick}
-            type='card-clicked'
-            buttonText='REMOVE' />
-        </div>
+  return (
+    <div className="compare-card-container">
+      <div className="compare-card-holder">
+        {districtOneCard}
+        {comparisonCard}
+        {districtTwoCard}
       </div>
-    );
-  } else if (districtOne !== '') {
-    return (
-      <div className="compare-card-container">
-        <div className="compare-card-holder">
-          
-          { displayCard(districtOne, handleClick) }
-
-        </div>
-        }
-      </div>
-    );
-  } else if (districtTwo !== '') {
-    return (
-      <div className="compare-card-container">
-        <div className="compare-card-holder">
-          <Card key={districtTwo.location} 
-            id={districtTwo.location}
-            districtName={districtTwo.location}
-            districtData={districtTwo.data}
-            handleClick={handleClick}
-            type='card-clicked'
-            buttonText='REMOVE' />
-        </div>
-      </div>
-    );
-  } else {
-    return null;
-  }  
+    </div>
+  );
 };
 
 export default CompareCardContainer;

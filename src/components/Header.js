@@ -27,4 +27,4 @@ Header.propTypes = {
   dataFileNames: PropTypes.array,
   changeDataSet: PropTypes.func,
   currentDataFile: PropTypes.string
-}
+};
