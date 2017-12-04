@@ -24,6 +24,7 @@ const CompareCardContainer = (
 
   const districtOneCard = districtOne !== '' ? displayCard(districtOne, handleClick) : null;
   const districtTwoCard = districtTwo !== '' ? displayCard(districtTwo, handleClick) : null;
+
   const comparisonCard = (districtOne !== '' && districtTwo !== '') ?
     <ComparisonCard 
       districtOne={districtOne.location}
@@ -45,8 +46,8 @@ const CompareCardContainer = (
 export default CompareCardContainer;
 
 CompareCardContainer.propTypes = {
-  districtOne: PropTypes.string,
-  districtTwo: PropTypes.string,
+  districtOne: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  districtTwo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   handleClick: PropTypes.func,
   compareDistrictAverages: PropTypes.func
 };
