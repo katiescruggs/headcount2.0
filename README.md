@@ -1,6 +1,6 @@
 # HeadCount 2.0
 
-###[See this project live at katiescruggs.com/headcount2.0!](http://katiescruggs.com/headcount2.0)
+### [See this project live at katiescruggs.com/headcount2.0!](http://katiescruggs.com/headcount2.0)
 
 ![alt text](./headcount-screenshot.png "HeadCount 2.0 Screenshot")
 
