@@ -2,7 +2,9 @@
 
 [See this project live!](http://katiescruggs.com/headcount2.0)
 
-HeadCount 2.0 is a project I completed with my partner @mariastlouis as part of the [Turing School](http://turing.io) front-end curriculum. We had one week to complete HeadCount 2.0.
+![alt text](./headcount-screenshot.png "HeadCount 2.0 Screenshot")
+
+HeadCount 2.0 is a project I completed with my partner @mariastlouis as part of the [Turing School](http://turing.io) front-end curriculum. We were given a file of static public school data in Colorado. We had to import this data, clean it, and present it in a certain way. We also had to allow the user to compare two school districts on any of the categories and display the comparison data in a certain way. We had one week to complete it.
 
 Technologies used: React, JavaScript, data manipulation.
 
